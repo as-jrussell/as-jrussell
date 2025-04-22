@@ -1,15 +1,29 @@
-DECLARE @sqlCPU NVARCHAR(1000)
-DECLARE @sqlMemory NVARCHAR(2000)
-DECLARE @sqlMemory1 NVARCHAR(2000)
-DECLARE @sqlMemory2 NVARCHAR(2000)
-DECLARE @sqlMemory3 NVARCHAR(2000)
-DECLARE @sqlLatency NVARCHAR(2000)
-DECLARE @sqlLatency1 NVARCHAR(2000)
-DECLARE @sqlLatency2 NVARCHAR(2000)
-DECLARE @sqlLatency3 NVARCHAR(2000)
-DECLARE @sqlPLE NVARCHAR(3000)
+DECLARE @AvgLatency DECIMAL(18,2), @Stolen BIGINT, @Free BIGINT, @PLEValue INT, @RunnableTasks INT, @PendingIO INT, @CPUMessage NVARCHAR(400), @LatencyMessage NVARCHAR(400), @MemMessage NVARCHAR(400), @PLEMessage NVARCHAR(400), @sqlCPU NVARCHAR(1000), @sqlMemory NVARCHAR(2000), @sqlMemory1 NVARCHAR(2000), @sqlMemory2 NVARCHAR(2000), @sqlMemory3 NVARCHAR(2000), @sqlLatency NVARCHAR(2000), @sqlLatency1 NVARCHAR(2000), @sqlLatency2 NVARCHAR(2000), @sqlLatency3 NVARCHAR(2000), @sqlPLE NVARCHAR(3000);
 DECLARE @DatabaseName SYSNAME = '';
 DECLARE @Dryrun BIT =0
+DECLARE @PerfSucks BIT = 0 -- 1 = Snarky report mode, 0 = Detailed result sets
+
+
+IF @PerfSucks = 0
+  BEGIN
+      SELECT TOP 1 @PLEValue = cntr_value
+      FROM   sys.dm_os_performance_counters
+      WHERE  [object_name] LIKE '%Buffer Node%'
+             AND counter_name = 'Page life expectancy';
+
+      SELECT TOP 1 @RunnableTasks = runnable_tasks_count,
+                   @PendingIO = pending_disk_io_count
+      FROM   sys.dm_os_schedulers
+      WHERE  status = 'VISIBLE ONLINE';
+
+      SELECT @Stolen = Sum(virtual_memory_committed_kb),
+             @Free = Sum(virtual_memory_reserved_kb)
+      FROM   sys.dm_os_memory_clerks;
+
+      -- Disk Latency
+      SELECT @AvgLatency = Avg(io_stall / NULLIF(num_of_reads + num_of_writes, 0.0))
+      FROM   sys.Dm_io_virtual_file_stats(NULL, NULL);
+  END
 
 -- PLE (Page Life Expectancy)
 SELECT @sqlPLE = N'
@@ -149,7 +163,6 @@ SELECT @sqlLatency3 = '
 
 ORDER BY  [Latency] DESC';
 
-
 IF @DatabaseName <> ''
   BEGIN
       SET @sqlMemory = ( @sqlMemory1 ) + ( @sqlMemory2 ) + ( @sqlMemory3 )
@@ -161,9 +174,70 @@ ELSE
       SET @sqlLatency = ( @sqlLatency1 ) + ( @sqlLatency3 )
   END
 
+IF @PerfSucks = 0
+  BEGIN
+      SELECT @PLEMessage = CASE
+                             WHEN @PLEValue < 60 THEN 'PLE < 60: Your server is crying in the break room. Optimize queries or throw RAM at it.'
+                             WHEN @PLEValue < 100 THEN 'PLE < 100: Memory pressure is knocking.'
+                             WHEN @PLEValue < 300 THEN 'PLE < 300: Rough ride. Check queries and indexes.'
+                             WHEN @PLEValue < 1000 THEN 'PLE < 1000: Meh. Room for improvement.'
+                             WHEN @PLEValue < 5000 THEN 'PLE < 5000: Nice. Keep an eye.'
+                             ELSE 'Excellent! Your memory is zen.'
+                           END;
 
+      PRINT '--- Page Life Expectancy Diagnostic ---';
 
-IF @Dryrun = 0
+      PRINT 'PLE Value: '
+            + Cast(@PLEValue AS NVARCHAR);
+
+      PRINT 'Analysis: ' + @PLEMessage;
+
+      SELECT @CPUMessage = CASE
+                             WHEN @RunnableTasks > 0
+                                  AND @PendingIO > 0 THEN 'CPU + I/O contention = Chaos. Tune queries or consider upgrades.'
+                             WHEN @RunnableTasks > 0 THEN 'CPU bottleneck. Bad queries or not enough cores.'
+                             WHEN @PendingIO > 0 THEN 'I/O queue is sad. Check your disk subsystem.'
+                             ELSE 'CPU is chillin. Nothing to see here.'
+                           END;
+
+      PRINT '--- CPU Diagnostic ---';
+
+      PRINT 'Runnable Tasks: '
+            + Cast(@RunnableTasks AS NVARCHAR);
+
+      PRINT 'Pending I/O: '
+            + Cast(@PendingIO AS NVARCHAR);
+
+      PRINT 'Analysis: ' + @CPUMessage;
+
+      SELECT @MemMessage = CASE
+                             WHEN @Stolen > @Free THEN 'Memory under siege. RAM might be your bottleneck.'
+                             ELSE 'Memory is balanced. No drama here.'
+                           END;
+
+      PRINT '--- Memory Diagnostic ---';
+
+      PRINT 'Stolen: ' + Cast(@Stolen AS NVARCHAR);
+
+      PRINT 'Free: ' + Cast(@Free AS NVARCHAR);
+
+      PRINT 'Analysis: ' + @MemMessage;
+
+      SELECT @LatencyMessage = CASE
+                                 WHEN @AvgLatency IS NULL THEN 'No latency data? Something''s up with monitoring.'
+                                 WHEN @AvgLatency > 100 THEN 'Disk latency is tragic. You need better storage or less chaos in the queries.'
+                                 WHEN @AvgLatency > 30 THEN 'Disk latency could be better. Keep an eye on it.'
+                                 ELSE 'Disk latency is solid. Storage is holding the line.'
+                               END;
+
+      PRINT '--- Disk Latency Diagnostic ---';
+
+      PRINT 'Avg Latency (ms): '
+            + Cast(@AvgLatency AS NVARCHAR);
+
+      PRINT 'Analysis: ' + @LatencyMessage;
+  END
+ELSE IF @Dryrun = 0
   BEGIN
       EXEC ( @sqlPLE)
 
