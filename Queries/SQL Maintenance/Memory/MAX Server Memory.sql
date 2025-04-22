@@ -21,13 +21,15 @@ FROM sys.dm_os_sys_memory;
 -- Calculate OS reserve
 SET @OSReserveGB = 
     CASE 
-        WHEN @TotalMemoryGB <= 16 THEN 6.0
-        WHEN @TotalMemoryGB <= 64 THEN 6.0
-        WHEN @TotalMemoryGB <= 128 THEN 8.0
-        WHEN @TotalMemoryGB <= 256 THEN 16.0
-        WHEN @TotalMemoryGB <= 512 THEN 32.0
-        ELSE 64.0
-    END;
+        WHEN @TotalMemoryGB <= 16384 THEN @TotalMemoryGB * 0.75      -- <= 16 GB
+        WHEN @TotalMemoryGB <= 32768 THEN @TotalMemoryGB * 0.80      -- <= 32 GB
+        WHEN @TotalMemoryGB <= 65536 THEN @TotalMemoryGB * 0.85      -- <= 64 GB
+        WHEN @TotalMemoryGB <= 131072 THEN @TotalMemoryGB * 0.875    -- <= 128 GB
+        WHEN @TotalMemoryGB <= 262144 THEN @TotalMemoryGB * 0.875    -- <= 256 GB
+        WHEN @TotalMemoryGB <= 524288 THEN @TotalMemoryGB * 0.90     -- <= 512 GB
+        WHEN @TotalMemoryGB <= 1048576 THEN @TotalMemoryGB * 0.90    -- <= 1 TB
+        ELSE @TotalMemoryGB * 0.95                                   -- <= 2 TB or more
+    END
 
 -- Calculate recommended max server memory for SQL Server
 SET @RecommendedMaxGB = ROUND(@TotalMemoryGB - @OSReserveGB, 1);
