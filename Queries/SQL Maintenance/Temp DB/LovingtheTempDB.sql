@@ -1,11 +1,25 @@
 USE DBA
 
 ---Variables that can be altered 
+/*
+######################################################################
+Examples
+######################################################################
+exec  [DBA].[deploy].[SetTempDBGrowth] --Shows data on the system and code that would be done 
+exec  [DBA].[deploy].[SetTempDBGrowth] @Verbose= 0 --Pulls table of the all the data about the temp DB
+exec  [DBA].[deploy].[SetTempDBGrowth] @Percentage= '0.30' ---What ever the percentage entered in it will cut 
+				that part of out the drive and use the remaining then subtract the log file 
+				from that and divide the rest up for the datafiles. Percent need to be convert to decimals.
+exec  [DBA].[deploy].[SetTempDBGrowth] @FileGrowth= '262144' ---What ever the percentage entered in it will 
+				  place as the file and log grow file.  Sizes need to be in KB
+exec  [DBA].[deploy].[SetTempDBGrowth] @Force = 0 ---Even if all criteria met this will give you info on system
+exec  [DBA].[deploy].[SetTempDBGrowth] @Dryrun = 0 ---Does the work
+*/
 ---AS A POC THE EXEC FORCING THE CHANGES HAS BEEN COMMENTED OUT
-DECLARE @Percentage NVARCHAR(5) =NULL,
-        @FileGrowth INT =NULL,
+DECLARE @Percentage NVARCHAR(5) ='.99',
+        @FileGrowth INT =262144,
         @Dryrun     BIT = 1,
-        @Verbose    BIT = 0,
+        @Verbose    BIT = 1,
         @Force      BIT = 1
 ----Embedded into Stored Proc
 DECLARE @IsPercentEnabled NVARCHAR(3)
@@ -578,4 +592,75 @@ IF( @IsRDS != 1 )
           PRINT 'Procedure: '
                 + Isnull(Error_procedure(), 'N/A')
       END CATCH
-  END 
+  END
+
+      IF (SELECT ( confvalue / 1024 )
+          FROM   DBA.INFO.databaseConfig
+          WHERE  databaseName = 'TEMPDB'
+                 AND confkey = 'MaxDataSizeMB') <> (SELECT Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR)))
+         AND (SELECT Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))) <> 0
+        BEGIN
+		
+IF @Dryrun = 0
+  BEGIN
+  /*
+            UPDATE D
+            SET    confvalue = ( @AmountPerDataFileGB * 1024 )
+            FROM   DBA.INFO.databaseConfig D
+            WHERE  databaseName = 'TEMPDB'
+                   AND confkey = 'MaxDataSizeMB'
+*/
+            PRINT '
+			Updated MaxDataSizeMB in DBA.INFO.databaseConfig table'
+        END
+
+		else
+
+		  BEGIN
+
+            PRINT '
+			The MaxDataSizeMB in DBA.INFO.databaseConfig table will be updated'
+        END
+
+
+		END
+
+
+
+
+
+
+
+
+
+
+      IF (SELECT ( confvalue / 1024 )
+          FROM   DBA.INFO.databaseConfig
+          WHERE  databaseName = 'TEMPDB'
+                 AND confkey = 'MaxLogSizeMB') <> @LogFile
+         AND @LogFile <> 0
+        BEGIN
+		
+IF @Dryrun = 0
+  BEGIN
+  /*
+            UPDATE D
+            SET    confvalue = ( @LogFile * 1024 )
+            FROM   DBA.INFO.databaseConfig D
+            WHERE  databaseName = 'TEMPDB'
+                   AND confkey = 'MaxLogSizeMB'
+*/
+
+            PRINT '
+			Updated MaxLogSizeMB in DBA.INFO.databaseConfig table'
+        END
+
+				else
+
+		  BEGIN
+
+            PRINT '
+			The MaxLogSizeMB in DBA.INFO.databaseConfig table will be updated'
+        END
+
+  END

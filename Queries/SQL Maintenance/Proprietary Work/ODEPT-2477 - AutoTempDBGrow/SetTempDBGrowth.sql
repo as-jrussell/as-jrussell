@@ -658,4 +658,52 @@ AS
                       + Isnull(Error_procedure(), 'N/A')
             END CATCH
         END
+  END
+
+IF (SELECT ( confvalue / 1024 )
+    FROM   DBA.INFO.databaseConfig
+    WHERE  databaseName = 'TEMPDB'
+           AND confkey = 'MaxDataSizeMB') <> (SELECT Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR)))
+   AND (SELECT Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))) <> 0
+  BEGIN
+      IF @Dryrun = 0
+        BEGIN
+            UPDATE D
+            SET    confvalue = ( @AmountPerDataFileGB * 1024 )
+            FROM   DBA.INFO.databaseConfig D
+            WHERE  databaseName = 'TEMPDB'
+                   AND confkey = 'MaxDataSizeMB'
+
+            PRINT '
+			Updated MaxDataSizeMB in DBA.INFO.databaseConfig table'
+        END
+      ELSE
+        BEGIN
+            PRINT '
+			The MaxDataSizeMB in DBA.INFO.databaseConfig table will be updated'
+        END
+  END
+
+IF (SELECT ( confvalue / 1024 )
+    FROM   DBA.INFO.databaseConfig
+    WHERE  databaseName = 'TEMPDB'
+           AND confkey = 'MaxLogSizeMB') <> @LogFile
+   AND @LogFile <> 0
+  BEGIN
+      IF @Dryrun = 0
+        BEGIN
+            UPDATE D
+            SET    confvalue = ( @LogFile * 1024 )
+            FROM   DBA.INFO.databaseConfig D
+            WHERE  databaseName = 'TEMPDB'
+                   AND confkey = 'MaxLogSizeMB'
+
+            PRINT '
+			Updated MaxLogSizeMB in DBA.INFO.databaseConfig table'
+        END
+      ELSE
+        BEGIN
+            PRINT '
+			The MaxLogSizeMB in DBA.INFO.databaseConfig table will be updated'
+        END
   END 
