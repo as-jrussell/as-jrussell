@@ -16,7 +16,7 @@ exec  [DBA].[deploy].[SetTempDBGrowth] @Force = 0 ---Even if all criteria met th
 exec  [DBA].[deploy].[SetTempDBGrowth] @Dryrun = 0 ---Does the work
 */
 ---AS A POC THE EXEC FORCING THE CHANGES HAS BEEN COMMENTED OUT
-DECLARE @Percentage NVARCHAR(5) ='.99',
+DECLARE @Percentage NVARCHAR(5) =NULL,
         @FileGrowth INT =262144,
         @Dryrun     BIT = 1,
         @Verbose    BIT = 1,

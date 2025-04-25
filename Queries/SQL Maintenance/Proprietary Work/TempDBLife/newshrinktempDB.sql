@@ -1,15 +1,31 @@
-USE [DBA]
+USE [DBA];
+
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Schema].[shrinkTempDB]') AND type in (N'P', N'PC'))
+BEGIN
+    /* Create Empty Stored Procedure */
+    EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [Schema].[shrinkTempDB] AS RETURN 0;';
+END;
 GO
-/****** Object:  StoredProcedure [dbo].[shrinkTempDB]    Script Date: 4/24/2025 12:29:33 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+/* Alter Stored Procedure */
 ALTER PROCEDURE [dbo].[shrinkTempDB] 
 (@maxRunTime int = 120)
--- will finish file it's on if the time expires, but does keep it from running endlessly.
-AS
+AS 
+
 set nocount on
+BEGIN
+
+
+      /*
+      ######################################################################
+      Declarations
+      ######################################################################
+      */
+
+
 -- DECLARE @maxRunTime int = 120
 declare @files as table (name varchar(50), newsize bigint, size bigint ,usedSpace bigint, fileType varchar(4))
 declare @name varchar(50), @newSize bigint, @usedSpace bigint, @size bigint, @fileType varchar(4)
@@ -17,6 +33,11 @@ declare @sql as varchar(7999)
 declare @minDataSize int, @minLogSize int
 declare @minTempDBData int, @minTempDBLog int  ---Open to change to something better named 
 declare @endTime datetime
+      /*
+        ######################################################################
+      Table Population
+        ######################################################################
+      */
 
 create table #space (
 fileGroupName sysname,
@@ -24,6 +45,28 @@ freeSpaceMB FLOAT,
 totalSpaceMB FLOAT,
 usedSpacePct FLOAT,
 usedSpaceLimitPct FLOAT)
+
+
+      /*
+        ######################################################################
+            Set
+        ######################################################################
+        */
+	
+select @minTempDBData = ISNULL(confvalue, 8192)
+FROM DBA.INFO.databaseConfig
+WHERE databaseName = 'TEMPDB' AND confkey = 'MaxDataSizeMB'
+
+select @minTempDBLog =  ISNULL(confvalue, 10240)
+FROM DBA.INFO.databaseConfig
+WHERE databaseName = 'TEMPDB' AND confkey = 'MaxLogSizeMB'
+
+
+      /*
+        ######################################################################
+      Collective work into the table
+        ######################################################################
+      */
 
 -- BML 11/20/14 add check if log or data > 50% full, skip shrinks
 select @sql = 'use tempdb
@@ -55,13 +98,6 @@ print @endTime
 -- get the instance specific parameters, or use the defaults if none are specified
 
 
-select @minTempDBData = ISNULL(confvalue, 8192)
-FROM DBA.INFO.databaseConfig
-WHERE databaseName = 'TEMPDB' AND confkey = 'MaxDataSizeMB'
-
-select @minTempDBLog =  ISNULL(confvalue, 10240)
-FROM DBA.INFO.databaseConfig
-WHERE databaseName = 'TEMPDB' AND confkey = 'MaxLogSizeMB'
 
 select @minDataSize = DBA.info.getSystemConfig('TempDBDataSizeMB',''+@minTempDBData +''),
        @minLogSize =  DBA.info.getDatabaseConfig ('TempDB', 'maxLogSizeMB',''+ @minTempDBLog+'')
@@ -155,5 +191,4 @@ begin
 	delete from @files where name = @name
 end
 
--- shrink the log
--------------------exec utility.dba.shrinkLogs @oneDB = 'tempdb'
+END;
