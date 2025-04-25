@@ -3,7 +3,7 @@ DECLARE @sqlcmd       VARCHAR(max),
         @logicalname  NVARCHAR(100),
         @DatabaseName VARCHAR(100),
         @Factor       VARCHAR(4) ='.250',--a factor to be applied to the target size for every time DBCC SHRINKFILE is called.
-        @SIZE         NVARCHAR(100) = 5120,--size of temp file in MB
+        @SIZE         NVARCHAR(100) = 1024,--size of temp file in MB
         @TYPE         NVARCHAR(10) = 'ROWS'--rows (databases) , log (logs) 
         ,
         @Force        INT = 0 --0 Runs script. PLEASE ONLY USE AS NECESSARY DOING THIS WILL REMOVE ANY AND ALL TEMP FILES CURRENTLY ON DRIVE

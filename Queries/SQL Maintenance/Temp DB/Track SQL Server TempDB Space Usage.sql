@@ -1,7 +1,7 @@
 use tempdb
 
 	DECLARE @QUERY NVARCHAR(MAX) = ''
-	,  @TempSize int = 0 ---Count are MBs
+	,  @TempSize int = 10 ---Count are MBs
 
 SELECT  concat('kill ', SS.session_id),SS.session_id , DB_NAME(SS.database_id)[DatabaseName] ,
         CAST(SS.user_objects_alloc_page_count / 128 AS DECIMAL(15, 2)) [Total Allocation User Objects MB] ,

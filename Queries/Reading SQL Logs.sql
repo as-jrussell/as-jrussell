@@ -108,7 +108,7 @@ SELECT
 --SELECT  LogText, COUNT(*)
 FROM   #IOWarningResults
 --WHERE ProcessInfo not in ('Logon','Backup')
-WHERE processinfo in ('Logon') 
+--WHERE processinfo in ('Logon') 
 --GROUP BY LogText 
 order by logdate desc 
 
