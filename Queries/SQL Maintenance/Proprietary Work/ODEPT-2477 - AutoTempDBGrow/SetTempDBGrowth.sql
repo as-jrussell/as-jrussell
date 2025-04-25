@@ -15,14 +15,12 @@ IF NOT EXISTS (SELECT *
 
 GO
 
-
-
 /* Alter Stored Procedure */
-ALTER PROCEDURE [deploy].[SetTempDBGrowth](@Percentage NVARCHAR(5) =NULL,
-                                       @FileGrowth INT =NULL,
-                                       @Dryrun     BIT = 1,
-                                       @Verbose    BIT = 1,
-                                       @Force      BIT = 1)
+ALTER PROCEDURE [deploy].[Settempdbgrowth](@Percentage NVARCHAR(5) =NULL,
+                                           @FileGrowth INT =NULL,
+                                           @Dryrun     BIT = 1,
+                                           @Verbose    BIT = 1,
+                                           @Force      BIT = 1)
 AS
   BEGIN
       /*
@@ -32,12 +30,12 @@ AS
       exec  [DBA].[deploy].[SetTempDBGrowth] --Shows data on the system and code that would be done 
       exec  [DBA].[deploy].[SetTempDBGrowth] @Verbose= 0 --Pulls table of the all the data about the temp DB
       exec  [DBA].[deploy].[SetTempDBGrowth] @Percentage= '0.30' ---What ever the percentage entered in it will cut 
-										that part of out the drive and use the remaining then subtract the log file 
-										from that and divide the rest up for the datafiles. Percent need to be convert to decimals.
+      				that part of out the drive and use the remaining then subtract the log file 
+      				from that and divide the rest up for the datafiles. Percent need to be convert to decimals.
       exec  [DBA].[deploy].[SetTempDBGrowth] @FileGrowth= '262144' ---What ever the percentage entered in it will 
-										  place as the file and log grow file.  Sizes need to be in KB
+      				  place as the file and log grow file.  Sizes need to be in KB
       exec  [DBA].[deploy].[SetTempDBGrowth] @Force = 0 ---Even if all criteria met this will give you info on system
-	   exec  [DBA].[deploy].[SetTempDBGrowth] @Dryrun = 0 ---Does the work
+      exec  [DBA].[deploy].[SetTempDBGrowth] @Dryrun = 0 ---Does the work
       */
       SET ANSI_NULLS ON;
       SET QUOTED_IDENTIFIER ON;
@@ -364,7 +362,7 @@ AS
               SELECT *
               FROM   #TempDBUsage
           END
-        ELSE
+        ELSE IF @Force <> 0
           BEGIN
               PRINT 'InstanceLocation: ' + @InstanceLocation;
 
