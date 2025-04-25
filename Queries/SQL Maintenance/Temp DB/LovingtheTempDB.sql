@@ -1,9 +1,11 @@
 USE DBA
 
 ---Variables that can be altered 
+
+---AS A POC THE EXEC FORCING THE CHANGES HAS BEEN COMMENTED OUT
 DECLARE @Percentage NVARCHAR(5) =NULL,
                                        @FileGrowth INT =NULL,
-                                       @Dryrun     BIT = 1,
+                                       @Dryrun     BIT = 0,
                                        @Verbose    BIT = 1,
                                        @Force      BIT = 0
 ----Embedded into Stored Proc
@@ -36,7 +38,7 @@ DECLARE @Percentage NVARCHAR(5) =NULL,
       DECLARE @IsRDS INT
       DECLARE @RDSsql NVARCHAR(MAX) = 'USE MSDB; SELECT @IsRDS = count(name) FROM sys.objects WHERE object_id = OBJECT_ID(N''dbo.rds_backup_database'') AND type in (N''P'', N''PC'')'
 
-      EXEC Sp_executesql
+      EXEC Sp_EXECutesql
         @RDSsql,
         N'@IsRDS int out',
         @IsRDS OUT;
@@ -385,7 +387,7 @@ IF Object_id(N'tempdb..#TempDBUsage') IS NOT NULL
 
                             IF @DryRun = 0
                               BEGIN
-                                  EXEC (@SQL_SCRIPT)
+                                  --EXEC (@SQL_SCRIPT)
 
                                   PRINT 'SUCCESS: Files Successfully Created!  File named: tempdev'
                                         + Rtrim(Cast(@CORES AS NCHAR))
@@ -467,7 +469,7 @@ IF Object_id(N'tempdb..#TempDBUsage') IS NOT NULL
 
                             IF @DryRun = 0
                               BEGIN
-                                  EXEC(@SQL_SCRIPT)
+                                  --EXEC(@SQL_SCRIPT)
 
                                   PRINT 'SUCCESS: Table File Modified for '
                                         + @FileName
@@ -552,7 +554,7 @@ IF Object_id(N'tempdb..#TempDBUsage') IS NOT NULL
 
                             IF @DryRun = 0
                               BEGIN
-                                  EXEC(@SQL_SCRIPT)
+                                  --EXEC(@SQL_SCRIPT)
 
                                   PRINT 'SUCCESS: Table File Modified for '
                                         + @FileName
