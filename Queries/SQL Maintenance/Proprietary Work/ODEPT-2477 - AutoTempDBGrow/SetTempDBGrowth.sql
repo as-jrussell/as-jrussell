@@ -16,7 +16,7 @@ IF NOT EXISTS (SELECT *
 GO
 
 /* Alter Stored Procedure */
-ALTER PROCEDURE [deploy].[Settempdbgrowth](@Percentage NVARCHAR(5) =NULL,
+ALTER PROCEDURE [deploy].[SetTempDBGrowth](@Percentage NVARCHAR(5) =NULL,
                                            @FileGrowth INT =NULL,
                                            @Dryrun     BIT = 1,
                                            @Verbose    BIT = 1,
