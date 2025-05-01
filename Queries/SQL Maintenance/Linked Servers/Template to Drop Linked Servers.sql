@@ -1,87 +1,82 @@
-DECLARE @sqlcmd VARCHAR(max);
-DECLARE @retval INT;
-DECLARE @ServerName SYSNAME = 'UTLSERVER'
-DECLARE @DryRun INT =0;
-DECLARE @Force INT =1;
+DECLARE @sqlcmd VARCHAR(MAX);
+DECLARE @retval INT = -1;
+DECLARE @ServerName SYSNAME = '';
+DECLARE @DryRun INT = 0;
+DECLARE @Force INT = 0;
 
 --exec sp_linkedservers
 
---1.-Does an exist check if it has a variable of 0, 1 then it goes to next step. 
-IF EXISTS(SELECT 1
-          FROM   master.dbo.sysservers
-          WHERE  srvname LIKE @ServerName)
-  BEGIN
-      BEGIN TRY
-          EXEC @retval = sys.Sp_testlinkedserver
-            @ServerName;
-      END TRY
-      BEGIN CATCH
-          SET @retval = Sign(@@ERROR);
-      END CATCH
-  END
-IF @retval IN ( 0, 1 )
-  BEGIN
----2. Checks for the variable of 0, 1 then if has a variable of 0 then it will show that it is a valid server that works.
---You can force it to drop with the hidden variable @force =0
-      IF @retval = 0
-        BEGIN
-            IF @Force = 0
-              BEGIN
-                  PRINT 'WARNING: This server is connecting but the users want it dropped ' + @ServerName + ''
-
-                  SELECT @SQLCMD = 'BEGIN TRY 
-			 EXEC master.dbo.Sp_dropserver
-                @server= ''' + @ServerName
-                                   + ''',
-                @droplogins=''droplogins''
-				END TRY
-				
-				BEGIN CATCH
-RETURN
-END CATCH'
-              END
-            ELSE
-              BEGIN
-                  PRINT 'SUCCESS: LINKED SERVER ''' + Isnull(@ServerName, '')
-                        + ''' IS CONNECTING!'
-              END
-        END
-      ELSE
-	  --2. If it is 1 then it show that it is broken and begin the process of trying to drop the server. 
-        BEGIN
-            PRINT 'WARNING: Server Name: ' + @ServerName + ' IS BROKEN CONNECTION'
 
 
-            SELECT @SQLCMD = 'BEGIN TRY 
-			 EXEC master.dbo.Sp_dropserver
-                @server= ''' + @ServerName
-                             + ''',
-                @droplogins=''droplogins''
-				END TRY
-				
-				BEGIN CATCH
-RETURN
-END CATCH'
-
-			PRINT 'SUCCESS: Dropping Server ' + @ServerName + ''
-        END
-  END
+-- Check if the linked server exists
+IF EXISTS (
+    SELECT 1
+    FROM master.dbo.sysservers
+    WHERE srvname = @ServerName
+)
+BEGIN
+    BEGIN TRY
+        EXEC @retval = sys.sp_testlinkedserver @ServerName;
+    END TRY
+    BEGIN CATCH
+        SET @retval = 1; -- Failed test = broken connection
+    END CATCH
+END
 ELSE
----1. If it is anything else fails with this error message and stops here!
-  BEGIN
-      PRINT 'FAIL: LINKED SERVER ''' + Isnull(@ServerName, '')
-            + ''' DOES NOT EXIST!'
-  END
+BEGIN
+    PRINT 'FAIL: LINKED SERVER ''' + ISNULL(@ServerName, '') + ''' DOES NOT EXIST!';
+    RETURN;
+END
 
+-- Process logic based on linked server test result
+IF @retval = 0
+BEGIN
+    -- Server connects successfully
+    IF @Force = 0
+    BEGIN
+        PRINT 'WARNING: LINKED SERVER ''' + @ServerName + ''' IS ACTIVE BUT @Force = 0. No drop will occur.';
+        SET @sqlcmd = '
+BEGIN TRY
+    EXEC master.dbo.sp_dropserver @server = ''' + @ServerName + ''', @droplogins = ''droplogins'';
+END TRY
+BEGIN CATCH
+    PRINT ''ERROR: Failed to drop server. '' + ERROR_MESSAGE();
+END CATCH';
+    END
+    ELSE
+    BEGIN
+        PRINT 'SUCCESS: LINKED SERVER ''' + @ServerName + ''' IS ACTIVE AND WILL NOT BE DROPPED BECAUSE @Force = 1.';
+        SET @sqlcmd = NULL;
+    END
+END
+ELSE IF @retval = 1
+BEGIN
+    -- Server test failed
+    PRINT 'WARNING: LINKED SERVER ''' + @ServerName + ''' IS BROKEN. Preparing to drop.';
+    SET @sqlcmd = '
+BEGIN TRY
+    EXEC master.dbo.sp_dropserver @server = ''' + @ServerName + ''', @droplogins = ''droplogins'';
+END TRY
+BEGIN CATCH
+    PRINT ''ERROR: Failed to drop server. '' + ERROR_MESSAGE();
+END CATCH';
+END
+ELSE
+BEGIN
+    PRINT 'ERROR: Unexpected @retval value: ' + CAST(@retval AS VARCHAR);
+    RETURN;
+END
 
-
+-- Execute or show the drop command
 IF @DryRun = 0
---3.If the DryRun is 0 then it will execute the executing query if it is the force or standard.
-  BEGIN
-      EXEC ( @SQLcmd)
-  END
+BEGIN
+    IF @sqlcmd IS NOT NULL
+        EXEC (@sqlcmd);
+    ELSE
+        PRINT 'INFO: Nothing to execute. Conditions did not warrant server drop.';
+END
 ELSE
---3.If the DryRun is 1 then it will ONLY show the job whether or not if it is the force or standard.
-  BEGIN
-      PRINT ( @SQLcmd )
-  END 
+BEGIN
+    PRINT 'DRY RUN OUTPUT:';
+    PRINT ISNULL(@sqlcmd, 'No command generated. Nothing to do.');
+END

@@ -20,10 +20,15 @@ CREATE TABLE #DatabaseConfig
 DECLARE @ProductVersion INT, @sql nvarchar(max)
 SELECT @ProductVersion = convert(int, LEFT(convert(varchar(100),SERVERPROPERTY('ProductVersion')),charindex('.',convert(varchar(100),SERVERPROPERTY('ProductVersion')))-1 ))
 
+SELECT @minDataSize = Isnull(confvalue, 8192)
+FROM   [DBA].[info].[DatabaseConfig]
+WHERE  databaseName = 'TEMPDB'
+       AND confKey = 'MaxDataSizeMB'
 
-            SELECT @minDataSize = ISNULL(confvalue, 8192) FROM [DBA].[info].[DatabaseConfig] WHERE databaseName = 'TEMPDB' AND confKey = 'MaxDataSizeMB'
-			
-            SELECT @minTempDBLog = ISNULL(confvalue, 10240) FROM [DBA].[info].[DatabaseConfig] WHERE databaseName = 'TEMPDB' AND confKey = 'MaxLogSizeMB'
+SELECT @minTempDBLog = Isnull(confvalue, 10240)
+FROM   [DBA].[info].[DatabaseConfig]
+WHERE  databaseName = 'TEMPDB'
+       AND confKey = 'MaxLogSizeMB'
 
 /* Insert records into source table */
     IF( '$(targetEnv)' IN ('PROD', 'PRD', 'ADM', 'ADMIN') )

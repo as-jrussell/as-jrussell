@@ -3,10 +3,10 @@ USE [DBA];
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[shrinkTempDB]') AND type in (N'P', N'PC'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Schema].[shrinkTempDB]') AND type in (N'P', N'PC'))
 BEGIN
     /* Create Empty Stored Procedure */
-    EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[shrinkTempDB] AS RETURN 0;';
+    EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [Schema].[shrinkTempDB] AS RETURN 0;';
 END;
 GO
 
