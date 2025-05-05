@@ -1,4 +1,4 @@
-DECLARE @DatabaseName VARCHAR(100) ='',
+DECLARE @DatabaseName VARCHAR(100) ='ThePlayPen',
         @TableName    VARCHAR(255) ='',
 		@FileGroup    VARCHAR(255) ='',
         @sqlcmd       VARCHAR(max),
@@ -9,6 +9,8 @@ use [' + @DatabaseName + ']
 
 SELECT
 	DB_NAME() AS DatabaseName,
+
+
     t.NAME AS TableName,
     s.Name AS SchemaName,
 	fg.name AS [File_Group],
@@ -33,7 +35,8 @@ SELECT
          WHEN i.is_unique = 1 THEN ''Unique''
          ELSE ''Not unique''
        END                                               AS [unique],
-	CONCAT(''select TOP 5 * from [''+DB_NAME()+''].[dbo].['',t.NAME,'']'') AS [Example Query]
+	CONCAT(''select TOP 5 * from [''+DB_NAME()+''].[dbo].['',t.NAME,'']'') AS [Example Query], 
+concat(''DROP TABLE ['',t.name, '']'') [Do you need a drop]
 FROM 
     sys.tables t
 INNER JOIN      

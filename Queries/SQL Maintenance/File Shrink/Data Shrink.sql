@@ -1,20 +1,16 @@
 DECLARE @sqlcmd       VARCHAR(max),
-        @Factor       VARCHAR(4) ='.250', --a factor to be applied to the target size for every time DBCC SHRINKFILE is called.
-        @DatabaseName VARCHAR(100) =''-- Database Name
-        ,
-        @logicalname  NVARCHAR(100)  --if this blank it pull from below. If there are multiple files on DB you want to use this
-        ,
-        @TYPE         NVARCHAR(10) = 'ROWS'--rows (databases) , log (logs) 
-        ,
-        @DryRun       INT = 0 --0 Runs script; 1 shows query
+        @logicalname NVARCHAR(50) ,
+	   @DatabaseName VARCHAR(100) ='',
+        @DryRun       INT = 0
 
-IF @logicalname IS NULL
-BEGIN
-    SELECT @logicalname = name
-    FROM   sys.master_files
-    WHERE  Db_name(database_id) = @DatabaseName
-           AND type_desc = @Type
-END
+
+
+
+select top 1 @logicalname =  name from sys.master_files
+where DB_NAME(database_id) = @DatabaseName
+AND type_desc = 'ROWS'
+
+
 
 SELECT @sqlcmd = '
 use [' + @DatabaseName
@@ -26,10 +22,10 @@ use [' + @DatabaseName
 
 
 DECLARE @FileName sysname = N'''
-                 + @logicalname + ''';
+                 + @logicalname
+                 + ''';
 DECLARE @TargetSize INT = (SELECT 1 + size*8./1024 FROM sys.database_files WHERE name = @FileName);
-DECLARE @Factor FLOAT = '
-                 + @Factor + '
+DECLARE @Factor FLOAT = .999;
  
 WHILE @TargetSize > 0
 BEGIN
@@ -41,8 +37,7 @@ BEGIN
     WAITFOR DELAY ''00:00:01'';
 END;'
 
-
- IF @DryRun = 0
+IF @DryRun = 0
   BEGIN
       EXEC ( @SQLcmd)
   END
