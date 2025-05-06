@@ -1,9 +1,14 @@
 DECLARE @SQLcmd VARCHAR(MAX);
 DECLARE @data VARCHAR(MAX);
 DECLARE @DatabaseName VARCHAR(100)='ThePlayPen'
-DECLARE @TYPE NVARCHAR(10) = 'log';
+DECLARE @TYPE NVARCHAR(10) = '';
 DECLARE @Variable VARCHAR(MAX) = '';
 DECLARE @DryRun INT = 0;
+
+
+
+
+
 
 -- For Disabled AutoGrowth or Unlimited Autogrowth, the stats are calculated based on the Current Size.
 -- With Unlimited Autogrowth, the file will grow as needed. 

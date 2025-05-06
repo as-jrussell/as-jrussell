@@ -1,6 +1,6 @@
 DECLARE @sqlcmd       VARCHAR(max),
         @logicalname NVARCHAR(50) ,
-	   @DatabaseName VARCHAR(100) ='',
+	   @DatabaseName VARCHAR(100) ='ThePlayPen',
         @DryRun       INT = 0
 
 
