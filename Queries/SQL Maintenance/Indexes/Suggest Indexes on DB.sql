@@ -1,5 +1,5 @@
-DECLARE @DatabaseName VARCHAR(100) ='',
-        @TableName    VARCHAR(255) ='',
+DECLARE @DatabaseName VARCHAR(100) ='iqq_live',
+        @TableName    VARCHAR(255) ='ORGANIZATION',
         @sqlcmd       VARCHAR(max),
         @DryRun       INT = 0
 
