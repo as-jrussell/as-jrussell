@@ -1,7 +1,7 @@
 DECLARE @sqlcmd VARCHAR(MAX)
 DECLARE @DatabaseName SYSNAME 
-DECLARE @Name VARCHAR(100) =''
-DECLARE @ObjectName VARCHAR(100)= 'Q'
+DECLARE @Name VARCHAR(100) ='iqq_live'
+DECLARE @ObjectName VARCHAR(100)= 'PRODUCT'
 DECLARE @DryRun INT = 0
 
 
@@ -35,7 +35,7 @@ CREATE TABLE #TempDatabases
 INSERT INTO #TempDatabases (DatabaseName, IsProcessed)
 SELECT name, 0
 FROM sys.databases
-WHERE database_id > 4
+WHERE database_id > 5
 ORDER BY database_id
 
 -- Loop through the remaining databases
