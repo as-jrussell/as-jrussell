@@ -1,11 +1,10 @@
-USE [dbname];  -- Replace with your preferred sandbox
+use [DBNAME]
+
+IF OBJECT_ID('dbo.CoffeeProtocol') IS NOT NULL
+    DROP PROCEDURE dbo.CoffeeProtocol;
 GO
 
-IF OBJECT_ID('dbo.ReturnOfThe5thProtocol') IS NOT NULL
-    DROP PROCEDURE dbo.ReturnOfThe5thProtocol;
-GO
-
-CREATE PROCEDURE dbo.ReturnOfThe5thProtocol
+CREATE PROCEDURE dbo.CoffeeProtocol
     @EnableSarcasm BIT = 1,
     @CoffeeCount INT = 0
 AS
@@ -16,7 +15,7 @@ BEGIN
     DECLARE @Mood VARCHAR(100);
     DECLARE @StupidityTolerance INT;
 
-    PRINT 'Launching Return of the 5th Protocol...';
+    PRINT 'Launching ...';
     PRINT 'Today is: ' + @Today;
 
     -- Set tolerance level based on day
@@ -28,6 +27,16 @@ BEGIN
     ELSE IF @Today = 'Friday'
     BEGIN
         PRINT 'It is Friday! Pretending to care at an all-time low.';
+        SET @StupidityTolerance = 80;
+    END
+        ELSE IF @Today = 'Tuesday'
+    BEGIN
+        PRINT 'The worst day of the wwek! Tomorrow is not Friday, the day after that is not Friday! Pretending to care at an all-time low.';
+        SET @StupidityTolerance = 80;
+    END
+	ELSE IF @Today = 'Thursday'
+    BEGIN
+        PRINT 'Friday Eve! We are almost there! Pretending to care still at an all-time low.';
         SET @StupidityTolerance = 80;
     END
     ELSE
@@ -50,9 +59,9 @@ BEGIN
     BEGIN
         IF @CoffeeCount = 0
             SET @Mood = 'System failure: No caffeine detected.';
-        ELSE IF @CoffeeCount BETWEEN 1 AND 2
+        ELSE IF @CoffeeCount = 1 
             SET @Mood = 'Functional, but don''t ask for favors.';
-        ELSE IF @CoffeeCount BETWEEN 3 AND 5
+        ELSE IF @CoffeeCount BETWEEN 2 AND 3
             SET @Mood = 'Running hot. Smart remarks likely.';
         ELSE
             SET @Mood = 'Overclocked. Expect brutal honesty and unnecessary opinions.';
