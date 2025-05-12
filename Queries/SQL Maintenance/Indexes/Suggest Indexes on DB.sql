@@ -1,9 +1,11 @@
-DECLARE @DatabaseName VARCHAR(100) ='iqq_live',
-        @TableName    VARCHAR(255) ='ORGANIZATION',
-        @sqlcmd       VARCHAR(max),
-        @DryRun       INT = 0
+DECLARE @SQL VARCHAR(max)
+DECLARE @DatabaseName SYSNAME ='';
+DECLARE  @TableName    VARCHAR(255) =''
+DECLARE @Table NVARCHAR(1) = 'Y'
+DECLARE @DryRun INT = 0 --1 preview / 0 executes it 
 
-SELECT @sqlcmd = ' USE [' + @DatabaseName
+            -- Prepare SQL Statement
+SELECT @SQL = ' USE [' + @DatabaseName
                  + ']
 
 SELECT db_name() AS [DatabaseName]
@@ -45,40 +47,25 @@ FROM [sys].[dm_db_missing_index_group_stats] gs WITH (NOLOCK)
 INNER JOIN [sys].[dm_db_missing_index_groups] ig WITH (NOLOCK) ON gs.[group_handle] = ig.[index_group_handle]
 INNER JOIN [sys].[dm_db_missing_index_details] id WITH (NOLOCK) ON ig.[index_handle] = id.[index_handle]
 INNER JOIN [sys].[databases] db WITH (NOLOCK) ON db.[database_id] = id.[database_id]
-WHERE  OBJECT_NAME(id.[object_id], db.[database_id])  like ''%' + @TableName + '%'' 
---IN ('''                 + @TableName + ''')
-AND  db.[name] ='''+@DatabaseName+'''
-ORDER BY gs.[user_seeks] DESC
-OPTION (RECOMPILE);'
+'
 
-IF @DatabaseName  ='?'
+IF @DryRun = 0
 BEGIN 
-IF @DryRun = 0
-  BEGIN
-  
-		exec sp_MSforeachdb @sqlcmd 
-  END
+IF @Table = 'Y'
+BEGIN 
+ EXEC (@SQL + ' WHERE   db.[name] ='''+@DatabaseName+''' AND OBJECT_NAME(id.[object_id], db.[database_id])  IN (''' + @TableName + ''')')
+END 
 ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec sp_MSforeachdb @sqlcmd' )
-  END
-  END 
-  ELSE 
-  BEGIN 
-IF @DryRun = 0
-  BEGIN
-      EXEC ( @SQLcmd)
-		
-  END
+BEGIN 
+ EXEC  (@SQL + ' WHERE   db.[name] ='''+@DatabaseName+'''')
+END 
+END 
+ELSE 
+IF @Table = 'Y'
+BEGIN 
+ PRINT (@SQL + ' WHERE   db.[name] ='''+@DatabaseName+''' AND OBJECT_NAME(id.[object_id], db.[database_id])  IN (''' + @TableName + ''')')
+END 
 ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec @sqlcmd')
-  END
-
-  END
-
-
+BEGIN 
+ PRINT (@SQL + ' WHERE   db.[name] ='''+@DatabaseName+'''')
+END 

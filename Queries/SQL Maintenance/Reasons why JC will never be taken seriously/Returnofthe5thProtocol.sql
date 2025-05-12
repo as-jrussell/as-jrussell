@@ -1,4 +1,4 @@
-use [DBNAME]
+use [Test1]
 
 IF OBJECT_ID('dbo.CoffeeProtocol') IS NOT NULL
     DROP PROCEDURE dbo.CoffeeProtocol;
@@ -26,7 +26,8 @@ BEGIN
     END
     ELSE IF @Today = 'Friday'
     BEGIN
-        PRINT 'It is Friday! Pretending to care at an all-time low.';
+        PRINT 'It is Friday! Pretending to care at an all-time low.' 
+		PRINT'Under no circumstances should production databases be touched; the weekend is approaching';
         SET @StupidityTolerance = 80;
     END
         ELSE IF @Today = 'Tuesday'

@@ -3,7 +3,7 @@ DECLARE @SQLcmd2 NVARCHAR(max)
 DECLARE @SourceDatabase NVARCHAR(100) = 'Unitrac'
 DECLARE @id NVARCHAR(10) = 92379
 DECLARE @TimeIncrement NVARCHAR(100) ='0:00:00'
-DECLARE @WhatIf BIT = 0
+DECLARE @WhatIf BIT = 1
 
 
 SELECT @SQLcmd = ( 'USE [' + @SourceDatabase

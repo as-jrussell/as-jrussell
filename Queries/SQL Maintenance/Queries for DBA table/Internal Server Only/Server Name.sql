@@ -1,7 +1,7 @@
 DECLARE @sqlcmd VARCHAR(max)
 DECLARE @Location NVARCHAR(25) = '' --ON-PREM, EC2, RDS
 DECLARE @Application NVARCHAR(100) = ''
-DECLARE @DBName NVARCHAR(50) = 'ivos'
+DECLARE @DBName NVARCHAR(50) = 'iqq_live'
 DECLARE @ServerEnvironment VARCHAR(10) = '' ---DEV, TST, STG,ADMIN, PRD
 DECLARE @Machine NVARCHAR(100) = '' --ServerName
 DECLARE @SQLServername VARCHAR(100) ='' --SQL Instance Name

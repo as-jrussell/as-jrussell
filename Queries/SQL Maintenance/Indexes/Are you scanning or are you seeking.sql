@@ -1,13 +1,54 @@
-DECLARE @DatabaseName VARCHAR(100) ='',
-        @TableName    VARCHAR(255) ='',
-		@IndexName  VARCHAR(255) ='',
-        @sqlcmd       VARCHAR(max),
-        @DryRun       INT = 0
+DECLARE @SQL VARCHAR(max)
+DECLARE @DatabaseName SYSNAME ='';
+DECLARE  @TableName    VARCHAR(255) =''
+DECLARE	@IndexName  VARCHAR(255) =''
+DECLARE @DryRun INT = 0 --1 preview / 0 executes it 
+DECLARE @Verbose INT =0 --1 preview / 0 executes it 
 
-SELECT @sqlcmd = ' USE ' + @DatabaseName
+
+IF Object_id(N'tempdb..#IndexStats') IS NOT NULL
+    DROP TABLE #IndexStats;
+
+CREATE TABLE #IndexStats (
+	DatabaseName sysname,
+    TableName sysname,
+    IndexName sysname,
+    IndexType nvarchar(60),
+    IndexSizeKB bigint,
+    NumOfSeeks bigint,
+    NumOfScans bigint,
+    NumOfLookups bigint,
+    NumOfUpdates bigint,
+    LastSeek datetime,
+    LastScan datetime,
+    LastLookup datetime,
+    LastUpdate datetime
+);
+
+
+      IF Object_id(N'tempdb..#TempDatabases') IS NOT NULL
+        DROP TABLE #TempDatabases
+
+      CREATE TABLE #TempDatabases
+        (
+           DatabaseName SYSNAME,
+           IsProcessed  BIT
+        )
+
+      -- Insert the databases to exclude into the temporary table
+      INSERT INTO #TempDatabases
+                  (DatabaseName,
+                   IsProcessed)
+SELECT name, 0 -- SELECT *
+FROM   sys.databases
+ORDER  BY database_id
+
+            -- Prepare SQL Statement
+SELECT @SQL = ' USE ' + @DatabaseName
                  + '
-
-SELECT OBJECT_NAME(IX.OBJECT_ID) Table_Name
+INSERT INTO #IndexStats
+SELECT DB_NAME(), 
+OBJECT_NAME(IX.OBJECT_ID) Table_Name
 	   ,IX.name AS Index_Name
 	   ,IX.type_desc Index_Type
 	   ,SUM(PS.[used_page_count]) * 8 IndexSizeKB
@@ -28,32 +69,26 @@ AND IX.name LIKE ''%'+ @IndexName + '%''
 GROUP BY OBJECT_NAME(IX.OBJECT_ID) ,IX.name ,IX.type_desc ,IXUS.user_seeks ,IXUS.user_scans ,IXUS.user_lookups,IXUS.user_updates ,IXUS.last_user_seek ,IXUS.last_user_scan ,IXUS.last_user_lookup ,IXUS.last_user_update
 order by IXUS.user_seeks desc'
 
-IF @DatabaseName  ='?'
-BEGIN 
-IF @DryRun = 0
-  BEGIN
-  
-		exec sp_MSforeachdb @sqlcmd 
-  END
-ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec sp_MSforeachdb @sqlcmd' )
-  END
-  END 
-  ELSE 
-  BEGIN 
-IF @DryRun = 0
-  BEGIN
-      EXEC ( @SQLcmd)
-		
-  END
-ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec @sqlcmd')
-  END
 
-  END
+
+            -- You know what we do here if it's 1 then it'll give us code and 0 executes it
+            IF @DryRun = 0
+              BEGIN
+                  PRINT ( @DatabaseName )
+
+                  EXEC ( @SQL)
+              END
+            ELSE
+              BEGIN
+                  PRINT ( @SQL )
+              END
+
+
+
+
+
+IF @Verbose = 0 AND @DryRun =0
+BEGIN 
+  select * From #IndexStats
+  WHERE DatabaseName = @DatabaseName
+  end 

@@ -1,10 +1,14 @@
-DECLARE @DatabaseName VARCHAR(100) ='',
-        @TableName    VARCHAR(255) ='',
-        @sqlcmd       VARCHAR(max),
-        @DryRun       INT = 0
+DECLARE @SQL VARCHAR(max)
+DECLARE @DatabaseName SYSNAME =''; --cannot be null
+DECLARE  @TableName    VARCHAR(255) ='' --to get exact table 
+DECLARE @Table NVARCHAR(1) = '' --to get exact table 
+DECLARE @DryRun INT = 0 --1 preview / 0 executes it 
 
-SELECT @sqlcmd = ' USE ' + @DatabaseName
-                 + '
+            -- Prepare SQL Statement
+SELECT @SQL = ' USE [' + @DatabaseName
+                 + ']
+
+
 SELECT t.create_date,
        t.modify_date,
        Schema_name(t.schema_id) + ''.'' + t.[name]         AS table_view,
@@ -42,42 +46,25 @@ FROM   sys.objects t
                            AND ic.index_id = i.index_id
                     ORDER  BY key_ordinal
                     FOR xml path ('''')) D (column_names)
-WHERE  t.is_ms_shipped <> 1
-       AND t.[name] like ''%'
-                 + @TableName + '%''
-	 --  AND t.[name] IN ('''
-                 + @TableName + ''')
-       AND index_id > 0
-ORDER  BY i.[name] '
-IF @DatabaseName  ='?'
+ 
+'
+IF @DryRun = 0
 BEGIN 
-IF @DryRun = 0
-  BEGIN
-  
-		exec sp_MSforeachdb @sqlcmd 
-  END
+IF @Table = 'Y'
+BEGIN 
+ EXEC (@SQL + ' WHERE   t.is_ms_shipped <> 1 AND t.[name] IN (''' + @TableName + ''')')
+END 
 ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec sp_MSforeachdb @sqlcmd' )
-  END
-  END 
-  ELSE 
-  BEGIN 
-IF @DryRun = 0
-  BEGIN
-      EXEC ( @SQLcmd)
-		
-  END
+BEGIN 
+ EXEC  (@SQL + ' WHERE  t.is_ms_shipped <> 1')
+END 
+END 
+ELSE 
+IF @Table = 'Y'
+BEGIN 
+ PRINT (@SQL + ' WHERE   t.is_ms_shipped <> 1 AND t.[name] IN (''' + @TableName + ''')')
+END 
 ELSE
-  BEGIN
-      PRINT ( @SQLcmd + '
-	  
-	  exec @sqlcmd')
-  END
-
-  END
-
-
-
+BEGIN 
+ PRINT (@SQL + ' WHERE  t.is_ms_shipped <> 1')
+END 

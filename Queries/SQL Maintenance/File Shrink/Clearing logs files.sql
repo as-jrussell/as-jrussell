@@ -20,7 +20,7 @@ CREATE TABLE #TempDatabases
 INSERT INTO #TempDatabases (DatabaseName, IsProcessed)
 SELECT name, 0
 FROM sys.databases
-WHERE database_id > 4
+WHERE database_id = 2
 ORDER BY database_id
 
 

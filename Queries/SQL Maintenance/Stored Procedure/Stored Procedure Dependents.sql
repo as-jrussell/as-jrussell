@@ -1,7 +1,7 @@
 DECLARE @sqlcmd VARCHAR(MAX)
 DECLARE @DatabaseName SYSNAME 
-DECLARE @Name VARCHAR(100) ='iqq_live'
-DECLARE @ObjectName VARCHAR(100)= 'PRODUCT'
+DECLARE @Name VARCHAR(100) =''
+DECLARE @ObjectName VARCHAR(100)= ''
 DECLARE @DryRun INT = 0
 
 
@@ -35,7 +35,7 @@ CREATE TABLE #TempDatabases
 INSERT INTO #TempDatabases (DatabaseName, IsProcessed)
 SELECT name, 0
 FROM sys.databases
-WHERE database_id > 5
+WHERE database_id > 4 and database_id != 12
 ORDER BY database_id
 
 -- Loop through the remaining databases
@@ -53,7 +53,7 @@ LEFT JOIN sys.dm_exec_procedure_stats ST on P.name = OBJECT_NAME(ST.object_id)
 CROSS JOIN DBA.INFO.INSTANCE I
 WHERE  DB_NAME(database_id) = DB_NAME()
 UNION
-SELECT DISTINCT I.SQLSERVERNAME, DB_NAME(), CONCAT(OBJECT_NAME(ED.referencing_id), '' stored procedure needs object:''), ED.referenced_entity_name COLLATE SQL_Latin1_General_CP1_CI_AS AS column2_alias, O.type_desc, NULL,  NULL
+SELECT DISTINCT I.SQLSERVERNAME, DB_NAME(), CONCAT(OBJECT_NAME(ED.referencing_id), '' object needs table:''), ED.referenced_entity_name COLLATE SQL_Latin1_General_CP1_CI_AS AS column2_alias, O.type_desc, NULL,  NULL
 FROM sys.sql_expression_dependencies ED
 LEFT JOIN sys.objects O on O.name = ED.referenced_entity_name
 CROSS JOIN DBA.INFO.INSTANCE I
@@ -79,9 +79,9 @@ END
 
 -- Fetch combined results for all databases
 SELECT 
-* FROM #CombinedResults
+ProcedureName+' ' +TableName
+FROM #CombinedResults
 WHERE  DatabaseName like '%'+ @Name + '%'
-AND (ProcedureName like '%'+ @ObjectName + '%'
-OR TableName like '%'+ @ObjectName+ '%')
+AND TableName = @ObjectName
 --AND LastExecutionTime is not null 
 Order by LastExecutionTime DESC
