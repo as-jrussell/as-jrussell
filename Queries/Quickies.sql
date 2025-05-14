@@ -83,23 +83,3 @@ PurgeStorageSchema -
 SetPurgeConfig - 
 
 */
-
-use iqq_live
-
-
-
-declare @lenderid bigint = 46497
-declare @beginDt datetime2 = '2025-04-01'
-declare @endDt datetime2 = '2025-04-30'
-declare @providerId bigint = NULL
-declare @productType nvarchar(32) = NULL
- 
- 
--- TODO: Set parameter values here.
- 
-EXECUTE [dbo].[GetRemitProvidersProjectedFromSales] 
-   @lenderId
-  ,@beginDt
-  ,@endDt
-  ,@providerId
-  ,@productType

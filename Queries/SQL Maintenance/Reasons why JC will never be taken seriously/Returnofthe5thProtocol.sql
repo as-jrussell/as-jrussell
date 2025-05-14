@@ -32,7 +32,7 @@ BEGIN
     END
         ELSE IF @Today = 'Tuesday'
     BEGIN
-        PRINT 'The worst day of the wwek! Tomorrow is not Friday, the day after that is not Friday! Pretending to care at an all-time low.';
+        PRINT 'The worst day of the week! Tomorrow is not Friday, the day after that is not Friday! Pretending to care at an all-time low.';
         SET @StupidityTolerance = 80;
     END
 	ELSE IF @Today = 'Thursday'

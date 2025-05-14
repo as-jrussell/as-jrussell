@@ -1,3 +1,5 @@
+-- PostgreSQL Maintenance Diagnostics Script
+-- Author: Your Friendly Index Whisperer
 -- Run as a privileged user in a test or maintenance window
 
 SELECT usename, *
