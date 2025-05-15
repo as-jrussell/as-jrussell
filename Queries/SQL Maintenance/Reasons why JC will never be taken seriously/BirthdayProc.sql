@@ -1,3 +1,12 @@
+use [ThePlayPen]
+
+go
+
+IF OBJECT_ID('dbo.SelectTop1BirthdayParty') IS NOT NULL
+    DROP PROCEDURE dbo.SelectTop1BirthdayParty;
+GO
+
+
 CREATE PROCEDURE SelectTop1BirthdayParty 
 AS
 BEGIN

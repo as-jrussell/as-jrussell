@@ -1,4 +1,6 @@
-use [Test1]
+use [ThePlayPen]
+
+go
 
 IF OBJECT_ID('dbo.CoffeeProtocol') IS NOT NULL
     DROP PROCEDURE dbo.CoffeeProtocol;
