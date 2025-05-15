@@ -74,8 +74,51 @@ BEGIN
 END $$;
 
 -- Assign privileges to groups
-DO $$ 
+-- Grant DB connect privileges
+DO $$
 BEGIN
-    -- Super Group Privileges
-    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'super_group' AND rolsuper = true) THEN
-        RAISE NOTICE 'Granting SUPERUSER, INHERIT, LOGIN to super_group_
+    -- Super Group DB Connect Privileges
+    IF NOT has_database_privilege('super_group', 'MyVeryFirstPosgresSQLDB', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on MyVeryFirstPosgresSQLDB to super_group';
+        GRANT CONNECT ON DATABASE "MyVeryFirstPosgresSQLDB" TO super_group;
+    ELSE
+        RAISE NOTICE 'super_group already has CONNECT on MyVeryFirstPosgresSQLDB';
+    END IF;
+
+    IF NOT has_database_privilege('super_group', 'two_trees', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on two_trees to super_group';
+        GRANT CONNECT ON DATABASE "two_trees" TO super_group;
+    ELSE
+        RAISE NOTICE 'super_group already has CONNECT on two_trees';
+    END IF;
+
+    IF NOT has_database_privilege('super_group', 'postgres', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on postgres to super_group';
+        GRANT CONNECT ON DATABASE postgres TO super_group;
+    ELSE
+        RAISE NOTICE 'super_group already has CONNECT on postgres';
+    END IF;
+
+    -- Creator Group DB Connect Privileges
+    IF NOT has_database_privilege('creator_group', 'MyVeryFirstPosgresSQLDB', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on MyVeryFirstPosgresSQLDB to creator_group';
+        GRANT CONNECT ON DATABASE "MyVeryFirstPosgresSQLDB" TO creator_group;
+    ELSE
+        RAISE NOTICE 'creator_group already has CONNECT on MyVeryFirstPosgresSQLDB';
+    END IF;
+
+    IF NOT has_database_privilege('creator_group', 'two_trees', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on two_trees to creator_group';
+        GRANT CONNECT ON DATABASE "two_trees" TO creator_group;
+    ELSE
+        RAISE NOTICE 'creator_group already has CONNECT on two_trees';
+    END IF;
+
+    -- Limited Group DB Connect Privileges
+    IF NOT has_database_privilege('limited_group', 'two_trees', 'CONNECT') THEN
+        RAISE NOTICE 'Granting CONNECT on two_trees to limited_group';
+        GRANT CONNECT ON DATABASE "two_trees" TO limited_group;
+    ELSE
+        RAISE NOTICE 'limited_group already has CONNECT on two_trees';
+    END IF;
+END $$;
