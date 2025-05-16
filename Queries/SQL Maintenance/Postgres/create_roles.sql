@@ -4,11 +4,15 @@ BEGIN
    IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'myveryfirstposgressqldb') THEN
       RAISE NOTICE 'Creating database: MyVeryFirstPosgresSQLDB';
       CREATE DATABASE "MyVeryFirstPosgresSQLDB";
+   ELSE
+      RAISE NOTICE 'Database already exists: MyVeryFirstPosgresSQLDB';
    END IF;
 
    IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'two_trees') THEN
       RAISE NOTICE 'Creating database: two_trees';
       CREATE DATABASE "two_trees";
+   ELSE
+      RAISE NOTICE 'Database already exists: two_trees';
    END IF;
 END $$;
 
@@ -18,18 +22,25 @@ BEGIN
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'super_group') THEN
         RAISE NOTICE 'Creating role: super_group';
         CREATE ROLE super_group;
+    ELSE
+        RAISE NOTICE 'Role already exists: super_group';
     END IF;
 
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'creator_group') THEN
         RAISE NOTICE 'Creating role: creator_group';
         CREATE ROLE creator_group;
+    ELSE
+        RAISE NOTICE 'Role already exists: creator_group';
     END IF;
 
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'limited_group') THEN
         RAISE NOTICE 'Creating role: limited_group';
         CREATE ROLE limited_group;
+    ELSE
+        RAISE NOTICE 'Role already exists: limited_group';
     END IF;
 END $$;
+
 
 -- Create users and assign to groups
 DO $$
