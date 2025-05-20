@@ -1,12 +1,3 @@
--- First, drop the databases (must be done before roles if roles own stuff)
-DO $$
-BEGIN
-    IF EXISTS (SELECT 1 FROM pg_database WHERE datname = 'two_trees') THEN
-        RAISE NOTICE 'Dropping database: two_trees';
-        EXECUTE 'DROP DATABASE "two_trees"';
-    END IF;
-
-
 
 
 DO $$
