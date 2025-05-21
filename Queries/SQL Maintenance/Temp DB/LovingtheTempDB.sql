@@ -16,7 +16,7 @@ exec  [DBA].[deploy].[SetTempDBGrowth] @Force = 0 ---Even if all criteria met th
 exec  [DBA].[deploy].[SetTempDBGrowth] @Dryrun = 0 ---Does the work
 */
 ---AS A POC THE EXEC FORCING THE CHANGES HAS BEEN COMMENTED OUT
-DECLARE @Percentage NVARCHAR(5) =NULL,
+DECLARE @Percentage NVARCHAR(5) ='.93',
         @FileGrowth INT =262144,
         @Dryrun     BIT = 1,
         @Verbose    BIT = 1,
@@ -374,32 +374,35 @@ IF( @IsRDS != 1 )
             BEGIN
                 WHILE @CORES > @FILECOUNT
                   BEGIN
-                      SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
-                ADD FILE (
-                               FILENAME = '''
-                                        + @BASEPATH + 'tempdb'
-                                        + Rtrim(Cast(@CORES AS NCHAR))
-                                        + '.ndf'',
-                               NAME = tempdev'
-                                        + Rtrim(Cast(@CORES AS NCHAR))
-                                        + ',
-                               SIZE = '
-                                        + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
-                                        + 'MB,
-                               FILEGROWTH = '
-                                        + Rtrim(Cast(@FileGrowth AS NCHAR))
-
-                      IF @ISPERCENT = 1
-                        SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
-                      ELSE
-                        SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
-
-                      SET @SQL_SCRIPT = @SQL_SCRIPT + ')'
-                      SET @CORES = @CORES - 1
+				   SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
+								   ADD FILE (
+												  FILENAME = '''
+									 + @BASEPATH + 'tempdb'
+									 + Rtrim(Cast(@CORES AS NCHAR))
+									 + '.ndf'',
+												  NAME = tempdev'
+									 + Rtrim(Cast(@CORES AS NCHAR))
+									 + ',
+												  SIZE = '
+									 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+									 + 'MB,
+												  FILEGROWTH = '
+									 + Rtrim(Cast(@FileGrowth AS NCHAR))
+           
+				   IF @ISPERCENT = 1
+					 SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
+				   ELSE
+					 SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
+           
+				   SET @SQL_SCRIPT = @SQL_SCRIPT + ', MAXSIZE =	'
+									 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+									 + 'MB)'
+				   SET @CORES = @CORES - 1 
+           
 
                       IF @DryRun = 0
                         BEGIN
-                            --EXEC (@SQL_SCRIPT)
+                            EXEC(@SQL_SCRIPT)
                             PRINT 'SUCCESS: Files Successfully Created!  File named: tempdev'
                                   + Rtrim(Cast(@CORES AS NCHAR))
                         END
@@ -456,19 +459,21 @@ IF( @IsRDS != 1 )
                       FROM   #TempFileNames
                       WHERE  IsProcessed = 0
 
-                      SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
-                MODIFY FILE (
-                               FILENAME = '''
-                                        + @BASEPATH + @PathFileName
-                                        + ''',
-                               NAME = '''
-                                        + @FileName
-                                        + ''',
-                               SIZE = '
-                                        + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
-                                        + 'MB,
-                               FILEGROWTH = '
-                                        + Rtrim(Cast(@FileGrowth AS NCHAR))
+					   SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
+									   MODIFY FILE (
+													  FILENAME = '''
+										 + @BASEPATH + @PathFileName
+										 + ''',
+													  NAME = '''
+										 + @FileName + ''',' + 'MAXSIZE =	'
+										 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+										 + 'MB,
+													  SIZE = '
+										 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+										 + 'MB,
+													  FILEGROWTH = '
+										 + Rtrim(Cast(@FileGrowth AS NCHAR)) 
+   
 
                       IF @ISPERCENT = 1
                         SET @SQL_SCRIPT =@SQL_SCRIPT + 'KB'
@@ -480,7 +485,7 @@ IF( @IsRDS != 1 )
 
                       IF @DryRun = 0
                         BEGIN
-                            --EXEC(@SQL_SCRIPT)
+                            EXEC(@SQL_SCRIPT)
                             PRINT 'SUCCESS: Table File Modified for '
                                   + @FileName
                         END
@@ -564,7 +569,7 @@ IF( @IsRDS != 1 )
 
                       IF @DryRun = 0
                         BEGIN
-                            --EXEC(@SQL_SCRIPT)
+                            EXEC(@SQL_SCRIPT)
                             PRINT 'SUCCESS: Table File Modified for '
                                   + @FileName
                         END

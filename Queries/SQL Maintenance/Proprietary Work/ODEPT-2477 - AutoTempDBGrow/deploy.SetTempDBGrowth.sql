@@ -436,28 +436,30 @@ AS
                   BEGIN
                       WHILE @CORES > @FILECOUNT
                         BEGIN
-                            SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
-                ADD FILE (
-                               FILENAME = '''
-                                              + @BASEPATH + 'tempdb'
-                                              + Rtrim(Cast(@CORES AS NCHAR))
-                                              + '.ndf'',
-                               NAME = tempdev'
-                                              + Rtrim(Cast(@CORES AS NCHAR))
-                                              + ',
-                               SIZE = '
-                                              + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
-                                              + 'MB,
-                               FILEGROWTH = '
-                                              + Rtrim(Cast(@FileGrowth AS NCHAR))
-
-                            IF @ISPERCENT = 1
-                              SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
-                            ELSE
-                              SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
-
-                            SET @SQL_SCRIPT = @SQL_SCRIPT + ')'
-                            SET @CORES = @CORES - 1
+                            				   SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
+								   ADD FILE (
+												  FILENAME = '''
+									 + @BASEPATH + 'tempdb'
+									 + Rtrim(Cast(@CORES AS NCHAR))
+									 + '.ndf'',
+												  NAME = tempdev'
+									 + Rtrim(Cast(@CORES AS NCHAR))
+									 + ',
+												  SIZE = '
+									 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+									 + 'MB,
+												  FILEGROWTH = '
+									 + Rtrim(Cast(@FileGrowth AS NCHAR))
+           
+				   IF @ISPERCENT = 1
+					 SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
+				   ELSE
+					 SET @SQL_SCRIPT = @SQL_SCRIPT + 'KB'
+           
+				   SET @SQL_SCRIPT = @SQL_SCRIPT + ', MAXSIZE =	'
+									 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+									 + 'MB)'
+				   SET @CORES = @CORES - 1 
 
                             IF @DryRun = 0
                               BEGIN
@@ -519,19 +521,20 @@ AS
                             FROM   #TempFileNames
                             WHERE  IsProcessed = 0
 
-                            SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
-                MODIFY FILE (
-                               FILENAME = '''
-                                              + @BASEPATH + @PathFileName
-                                              + ''',
-                               NAME = '''
-                                              + @FileName
-                                              + ''',
-                               SIZE = '
-                                              + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
-                                              + 'MB,
-                               FILEGROWTH = '
-                                              + Rtrim(Cast(@FileGrowth AS NCHAR))
+					   SET @SQL_SCRIPT = N'ALTER DATABASE tempdb
+									   MODIFY FILE (
+													  FILENAME = '''
+										 + @BASEPATH + @PathFileName
+										 + ''',
+													  NAME = '''
+										 + @FileName + ''',' + 'MAXSIZE =	'
+										 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+										 + 'MB,
+													  SIZE = '
+										 + Rtrim(Cast(Cast(@AmountPerDataFileGB * 1024 AS INT) AS NCHAR))
+										 + 'MB,
+													  FILEGROWTH = '
+										 + Rtrim(Cast(@FileGrowth AS NCHAR)) 
 
                             IF @ISPERCENT = 1
                               SET @SQL_SCRIPT =@SQL_SCRIPT + 'KB'
