@@ -10,6 +10,12 @@ CREATE PROCEDURE dbo.CoffeeProtocol
     @EnableSarcasm BIT = 1,
     @CoffeeCount INT = 0
 AS
+
+/*
+EXEC [ThePlayPen].dbo.CoffeeProtocol  @CoffeeCount  = 0
+*/
+
+
 BEGIN
     SET NOCOUNT ON;
 
