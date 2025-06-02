@@ -1,4 +1,11 @@
-use [ThePlayPen]
+IF @@SERVERNAME =  'DBA-SQLQA-01\I01'
+BEGIN
+    -- Do something
+	use Test1
+END
+
+
+
 
 go
 
@@ -86,3 +93,5 @@ BEGIN
     PRINT 'Protocol complete. You are cleared to ignore unreasonable requests.';
 END
 GO
+
+EXEC dbo.CoffeeProtocol  @CoffeeCount  = 0

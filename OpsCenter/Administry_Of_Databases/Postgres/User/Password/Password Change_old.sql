@@ -1,4 +1,3 @@
-
 DO $$
 BEGIN
     IF NOT EXISTS (
@@ -35,27 +34,7 @@ END
 $$;
 
 
-DO $$
-DECLARE
-    func_oid oid;
-BEGIN
-
-    SELECT oid INTO func_oid
-    FROM pg_proc
-    WHERE proname = 'setpassword'
-      AND proargtypes = '25 25'::oidvector;  -- 25=text, 16=boolean
-
-    IF func_oid IS NOT NULL THEN
-        EXECUTE 'DROP FUNCTION dba.setpassword(text, text)';
-        RAISE NOTICE 'Function dba.setpassword(text, text) dropped.';
-    ELSE
-        RAISE NOTICE 'Function dba.setpassword(text, text) does not exist.';
-    END IF;
-END
-$$ LANGUAGE plpgsql;
-
-
-CREATE OR REPLACE FUNCTION dba.SetPassword(
+CREATE OR REPLACE FUNCTION dba.safe_change_password(
     target_username TEXT,
     new_password TEXT
 )
@@ -73,7 +52,7 @@ BEGIN
         RAISE EXCEPTION 'Password cannot be null or empty';
     END IF;
 
-    IF length(new_password) < 9 THEN
+    IF length(new_password) < 12 THEN
         RAISE EXCEPTION 'Password must be at least 12 characters long';
     END IF;
 
@@ -88,8 +67,7 @@ BEGIN
         INSERT INTO dba.password_change_audit (changed_by, changed_user, note)
         VALUES (caller, target_username, 'Password changed via dba.safe_change_password');
 
-        -- Return success message
-        RAISE NOTICE 'SUCCESS: Password changed for user %', target_username;
+        RAISE NOTICE 'Password for user "%" successfully changed by "%"', target_username, caller;
     ELSE
         RAISE EXCEPTION 'User "%" does not exist', target_username;
     END IF;
@@ -98,10 +76,4 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = dba, public;
-
-DO $$
-BEGIN
-    RAISE NOTICE 'To execute password change: SELECT dba.SetPassword(''username'', ''password'')';
-END;
-$$ LANGUAGE plpgsql;
 

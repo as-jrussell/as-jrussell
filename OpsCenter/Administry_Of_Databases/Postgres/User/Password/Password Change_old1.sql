@@ -98,10 +98,3 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = dba, public;
-
-DO $$
-BEGIN
-    RAISE NOTICE 'To execute password change: SELECT dba.SetPassword(''username'', ''password'')';
-END;
-$$ LANGUAGE plpgsql;
-
