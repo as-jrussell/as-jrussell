@@ -2,9 +2,9 @@ DO
 $$
 DECLARE
     role_name TEXT := 'dba_team';  -- Role to ensure exists
-    user_list TEXT[] := ARRAY['user1', 'user2', 'user3', 'user4', 'user5', 'user6'];  -- Add users here
+    user_list TEXT[] := ARRAY['hbrotherton', 'acummins', 'lrensberger', 'mbreitsch', 'jrussell'];  -- Add users here
     user_name TEXT;
-    execute_flag BOOLEAN := false;  -- FALSE = DRY RUN, TRUE = EXECUTE
+    execute_flag BOOLEAN := TRUE;  -- FALSE = DRY RUN, TRUE = EXECUTE
 BEGIN
     RAISE NOTICE 'Execution mode is %', CASE WHEN execute_flag THEN 'ON (changes will be applied)' ELSE 'OFF (dry-run only)' END;
 
@@ -53,3 +53,6 @@ BEGIN
     END LOOP;
 END
 $$ LANGUAGE plpgsql;
+
+
+GRANT dbadmin TO dba_team;

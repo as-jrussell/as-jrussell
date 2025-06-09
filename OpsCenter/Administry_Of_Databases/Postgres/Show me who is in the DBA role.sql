@@ -10,7 +10,7 @@ SELECT
 FROM
     pg_roles
 WHERE
-    rolname = 'dba_team'
+    rolname = 'lendinginsights'
 
 UNION ALL
 
@@ -28,8 +28,7 @@ FROM
     JOIN pg_roles role ON m.roleid = role.oid
     JOIN pg_roles member ON m.member = member.oid
 WHERE
-    role.rolname = 'dba_team'
+    role.rolname = 'lendinginsights'
 
 ORDER BY
-    member_name;
-
+    membe

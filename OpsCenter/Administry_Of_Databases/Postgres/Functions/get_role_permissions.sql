@@ -1,3 +1,17 @@
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_namespace WHERE nspname = 'dba'
+    ) THEN
+        EXECUTE 'CREATE SCHEMA dba AUTHORIZATION current_user';
+        RAISE NOTICE 'Schema "dba" created.';
+    ELSE
+        RAISE NOTICE 'Schema "dba" already exists.';
+    END IF;
+END
+$$;
+
 CREATE OR REPLACE FUNCTION dba.get_role_permissions(p_role TEXT, p_permission TEXT)
 RETURNS TABLE (
     privilege TEXT,
