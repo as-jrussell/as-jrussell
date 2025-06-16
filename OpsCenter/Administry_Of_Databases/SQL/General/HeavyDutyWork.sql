@@ -1,11 +1,26 @@
-DECLARE @AvgLatency DECIMAL(18,2), @Stolen BIGINT, @Free BIGINT, @PLEValue INT, @RunnableTasks INT, @PendingIO INT, @CPUMessage NVARCHAR(400), @LatencyMessage NVARCHAR(400), @MemMessage NVARCHAR(400), @PLEMessage NVARCHAR(400), @sqlCPU NVARCHAR(1000), @sqlMemory NVARCHAR(2000), @sqlMemory1 NVARCHAR(2000), @sqlMemory2 NVARCHAR(2000), @sqlMemory3 NVARCHAR(2000), @sqlLatency NVARCHAR(2000), @sqlLatency1 NVARCHAR(2000), @sqlLatency2 NVARCHAR(2000), @sqlLatency3 NVARCHAR(2000), @sqlPLE NVARCHAR(3000);
+DECLARE @AvgLatency     DECIMAL(18, 2),
+        @Stolen         BIGINT,
+        @Free           BIGINT,
+        @PLEValue       INT,
+        @RunnableTasks  INT,
+        @PendingIO      INT,
+        @CPUMessage     NVARCHAR(400),
+        @LatencyMessage NVARCHAR(400),
+        @MemMessage     NVARCHAR(400),
+        @PLEMessage     NVARCHAR(400),
+        @sqlCPU         NVARCHAR(1000),
+        @sqlMemory      NVARCHAR(2000),
+        @sqlMemory1     NVARCHAR(2000),
+        @sqlMemory2     NVARCHAR(2000),
+        @sqlMemory3     NVARCHAR(2000),
+        @sqlLatency     NVARCHAR(2000),
+        @sqlLatency1    NVARCHAR(2000),
+        @sqlLatency2    NVARCHAR(2000),
+        @sqlLatency3    NVARCHAR(2000),
+        @sqlPLE         NVARCHAR(3000);
 DECLARE @DatabaseName SYSNAME = '';
-DECLARE @Dryrun BIT =0  -- 0 = Executes it, 1 = Provide code
-DECLARE @PerfSucks BIT = 1  -- 0 = Snarky report mode, 1 = Detailed result sets
-
-
-
-
+DECLARE @Dryrun BIT =0 -- 0 = Executes it, 1 = Provide code
+DECLARE @PerfSucks BIT = 0 -- 0 = Snarky report mode, 1 = Detailed result sets
 
 IF @PerfSucks = 0
   BEGIN
@@ -242,13 +257,25 @@ IF @PerfSucks = 0
   END
 ELSE IF @Dryrun = 0
   BEGIN
-       EXEC ( @sqlPLE)
+      IF @DatabaseName <> ''
+        BEGIN
+            EXEC ( @sqlPLE)
 
-      EXEC ( @sqlCPU);
+            EXEC ( @sqlCPU);
 
-      EXEC ( @sqlMemory)
+            EXEC ( @sqlLatency)
+						
+            EXEC ( @sqlMemory)
 
-      EXEC ( @sqlLatency)
+        END
+      ELSE
+        BEGIN
+            EXEC ( @sqlPLE)
+
+            EXEC ( @sqlCPU);
+
+            EXEC ( @sqlLatency)
+        END
   END
 ELSE
   BEGIN
@@ -256,7 +283,7 @@ ELSE
 
       PRINT ( @sqlCPU );
 
-      PRINT ( @sqlMemory )
-
       PRINT ( @sqlLatency )
+
+      PRINT ( @sqlMemory )
   END 

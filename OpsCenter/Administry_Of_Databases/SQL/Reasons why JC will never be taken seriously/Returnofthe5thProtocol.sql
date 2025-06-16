@@ -1,19 +1,20 @@
-IF @@SERVERNAME =  'DBA-SQLQA-01\I01'
-BEGIN
-    -- Do something
-	use Test1
-END
+SET ANSI_NULLS ON;
+SET QUOTED_IDENTIFIER ON;
 
+IF NOT EXISTS (SELECT *
+               FROM   sys.objects
+               WHERE  object_id = Object_id(N'[dbo].[CoffeeProtocol]')
+                      AND type IN ( N'P', N'PC' ))
+  BEGIN
+      /* Create Empty Stored Procedure */
+      EXEC dbo.Sp_executesql
+        @statement = N'CREATE PROCEDURE [dbo].[CoffeeProtocol] AS RETURN 0;';
+  END;
 
-
-
-go
-
-IF OBJECT_ID('dbo.CoffeeProtocol') IS NOT NULL
-    DROP PROCEDURE dbo.CoffeeProtocol;
 GO
 
-CREATE PROCEDURE dbo.CoffeeProtocol
+/* Alter Stored Procedure */
+ALTER  PROCEDURE dbo.CoffeeProtocol
     @EnableSarcasm BIT = 1,
     @CoffeeCount INT = 0
 AS

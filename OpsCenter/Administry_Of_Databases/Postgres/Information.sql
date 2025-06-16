@@ -47,4 +47,21 @@ SELECT
     tablename,
     tableowner
 FROM pg_tables
+
 WHERE schemaname NOT LIKE 'pg_%' AND schemaname <> 'information_schema';
+
+
+
+SELECT
+    r.rolname AS role_name,
+    ARRAY_AGG(m.rolname) AS inherited_roles
+FROM
+    pg_roles r
+LEFT JOIN
+    pg_auth_members am ON r.oid = am.member
+LEFT JOIN
+    pg_roles m ON am.roleid = m.oid
+GROUP BY
+    r.rolname
+ORDER BY
+    r.rolname;

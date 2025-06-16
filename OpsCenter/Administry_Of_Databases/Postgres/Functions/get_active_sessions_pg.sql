@@ -1,10 +1,27 @@
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_namespace WHERE nspname = 'dba'
+    ) THEN
+        EXECUTE 'CREATE SCHEMA dba AUTHORIZATION current_user';
+        RAISE NOTICE 'Schema "dba" created.';
+    ELSE
+        RAISE NOTICE 'Schema "dba" already exists.';
+    END IF;
+END
+$$;
+
+-- DROP FUNCTION dba.whoisactive(text,boolean,boolean)
+
 CREATE OR REPLACE FUNCTION dba.whoisactive (
     p_database_name TEXT DEFAULT NULL,
     p_show_idle_in_transaction BOOLEAN DEFAULT FALSE,
-    p_show_all_idle BOOLEAN DEFAULT FALSE -- New parameter!
+    p_show_all_idle BOOLEAN DEFAULT FALSE
 )
 RETURNS TABLE (
-    pid INT,
+       duration INTERVAL,  -- New column: shows how long the current query has been running
+   pid INT,
     datname NAME,
     usename NAME,
     application_name TEXT,
@@ -23,6 +40,7 @@ AS $$
 BEGIN
     RETURN QUERY
     SELECT
+	     NOW() - sa.query_start AS duration, -- Calculation for the new duration column
         sa.pid,
         sa.datname,
         sa.usename,
@@ -36,23 +54,24 @@ BEGIN
         sa.wait_event_type,
         sa.wait_event,
         sa.query
+ 
     FROM
         pg_stat_activity sa
     WHERE
-        sa.pid <> pg_backend_pid() -- Exclude the current session
+        sa.pid <> pg_backend_pid()
         AND (
-            p_show_all_idle -- If TRUE, return everything (no state filtering)
+            p_show_all_idle
             OR
             (
-                NOT p_show_all_idle AND NOT p_show_idle_in_transaction AND sa.state <> 'idle' -- Original default: exclude all idle
+                NOT p_show_all_idle AND NOT p_show_idle_in_transaction AND sa.state <> 'idle'
             )
             OR
             (
-                NOT p_show_all_idle AND p_show_idle_in_transaction AND sa.state <> 'idle' OR sa.state ILIKE 'idle in transaction%' -- Include only idle_in_transaction
+                NOT p_show_all_idle AND p_show_idle_in_transaction AND sa.state <> 'idle' OR sa.state ILIKE 'idle in transaction%'
             )
         )
-        AND (p_database_name IS NULL OR sa.datname = p_database_name) -- Filter by database name if provided
+        AND (p_database_name IS NULL OR sa.datname = p_database_name)
     ORDER BY
-        sa.query_start DESC;
+        duration DESC;
 END;
 $$;

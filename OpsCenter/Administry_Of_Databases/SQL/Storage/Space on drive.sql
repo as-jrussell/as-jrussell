@@ -4,9 +4,18 @@ DECLARE @DatabaseName VARCHAR(100)=''
 DECLARE @TYPE NVARCHAR(10) = '';
 DECLARE @Variable VARCHAR(MAX) = '';
 DECLARE @DryRun INT = 0;
+      DECLARE @IsRDS INT
+      /*
+      ######################################################################
+      Is this an RDS instance ?
+      ######################################################################
+      */
+      DECLARE @RDSsql NVARCHAR(MAX) = 'USE MSDB; SELECT @IsRDS = count(name) FROM sys.objects WHERE object_id = OBJECT_ID(N''dbo.rds_backup_database'') AND type in (N''P'', N''PC'')'
 
-
-
+      EXEC Sp_executesql
+        @RDSsql,
+        N'@IsRDS int out',
+        @IsRDS OUT;
 
 
 
@@ -79,14 +88,29 @@ IF @DryRun = 0
 
       -- Get the total number of databases
       SELECT @Counter = Count(*)
-      FROM   sys.databases; -- You can filter this if needed
+	  --select *
+      FROM   sys.databases
+	  -- You can filter this if needed
       WHILE @Counter > 0
         BEGIN
             -- Get the next database name
+    IF( @IsRDS = 1 )
+	BEGIN
+            SELECT TOP 1 @DbName = name
+            FROM   sys.databases -- Add filtering here if needed
+           WHERE NAME NOT IN (SELECT DatabaseName  FROM DBA.info.[DATABASE] WHERE DatabaseType = 'SYSTEM') and 
+			name NOT IN (SELECT TOP (@Counter - 1) DatabaseName   FROM DBA.info.[DATABASE] WHERE DatabaseType <> 'SYSTEM')
+END
+	ELSE
+	BEGIN
+	            -- Get the next database name
             SELECT TOP 1 @DbName = name
             FROM   sys.databases -- Add filtering here if needed
             WHERE  name NOT IN (SELECT TOP (@Counter - 1) name
                                 FROM   sys.databases); -- ORDER BY name); 
+
+	END
+
             SET @data = 'USE [' + @DbName + '] ' + @SQLcmd;
 
             -- Insert data into the temporary table
@@ -100,7 +124,7 @@ IF @DryRun = 0
       IF @TYPE <> ''
          AND @DatabaseName = ''
         BEGIN
-            SELECT *
+            SELECT   *
             FROM   #DatafileSize
             WHERE  TYPE = @type
             ORDER  BY CONVERT(INT, Abs([SpaceUsedMB])) DESC;
@@ -108,7 +132,7 @@ IF @DryRun = 0
       ELSE IF @DatabaseName <> ''
          AND @TYPE = ''
         BEGIN
-            SELECT *
+            SELECT   *
             FROM   #DatafileSize
             WHERE  DatabaseName = @DatabaseName
             ORDER  BY CONVERT(INT, Abs([SpaceUsedMB])) DESC;
@@ -116,7 +140,7 @@ IF @DryRun = 0
       ELSE IF @TYPE <> ''
          AND @DatabaseName <> ''
         BEGIN
-            SELECT *
+            SELECT   *
             FROM   #DatafileSize
             WHERE  TYPE = @type
                    AND DatabaseName = @DatabaseName
@@ -128,7 +152,7 @@ IF @DryRun = 0
         END
       ELSE
         BEGIN
-            SELECT *
+            SELECT   *
             FROM   #DatafileSize
             ORDER  BY CONVERT(INT, Abs([SpaceUsedMB])) DESC;
         END
