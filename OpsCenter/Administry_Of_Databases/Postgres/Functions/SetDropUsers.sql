@@ -45,6 +45,15 @@ CREATE OR REPLACE FUNCTION dba.SetDropUsers(
     usernames TEXT[],
     execute_flag BOOLEAN DEFAULT FALSE
 )
+/*
+Dryrun
+SELECT dba.SetDropUsers(ARRAY['user1', 'user2'], FALSE);
+
+Execute
+SELECT dba.SetDropUsers(ARRAY['user1', 'user2'], TRUE);
+
+
+*/
 RETURNS VOID AS $$
 DECLARE
     user_name TEXT;

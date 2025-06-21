@@ -59,6 +59,17 @@ CREATE OR REPLACE FUNCTION dba.SetAccountCreation(
 RETURNS TEXT
 LANGUAGE plpgsql
 AS $$
+/*
+
+SELECT dba.SetAccountCreation( 
+    p_usernames := ARRAY['user'],
+    p_user_password := 'password',
+    p_user_inherit_roles := ARRAY['role'],  --db_datareader, db_datawriter, db_ddladmin
+    p_execute_flag := FALSE
+);
+
+*/
+
 DECLARE
     v_entity_exists BOOLEAN;
     v_is_member BOOLEAN;

@@ -43,6 +43,21 @@ SELECT grantee, privilege_type, table_schema, table_name
 FROM information_schema.role_table_grants
 WHERE grantee = 'db_datawriter';
 
+REVOKE ddl_admin FROM some_user;
+
+
+
+SELECT 
+    'REVOKE ddl_admin FROM ' || r.rolname || ';'
+FROM 
+    pg_auth_members m
+JOIN 
+    pg_roles r ON m.member = r.oid
+JOIN 
+    pg_roles p ON m.roleid = p.oid
+WHERE 
+    p.rolname = 'ddl_admin';
+
 
 
 
@@ -52,3 +67,29 @@ WHERE grantee = 'db_datawriter';
 
 SELECT * FROM pg_tables WHERE tableowner = 'db_datawriter';
 SELECT * FROM pg_class WHERE relowner = (SELECT oid FROM pg_roles WHERE rolname = 'db_datawriter');
+
+
+
+
+"REVOKE ddl_admin FROM ""Chris.Dunham;"
+SET ROLE dba_team;
+REVOKE db_ddladmin FROM "Chris.Dunham";
+REVOKE db_ddladmin FROM "Luke.Bodwell";
+REVOKE db_ddladmin FROM "Zachary.Comer";
+REVOKE db_ddladmin FROM "Jiayun.You";
+REVOKE db_ddladmin FROM "DurgaMalleswari.Tanguturi";
+REVOKE db_ddladmin FROM "Scott.Anderson";
+REVOKE db_ddladmin FROM "Joseph.Hance";
+REVOKE db_ddladmin FROM "Vijay.Srireddy";
+
+
+SELECT 
+    'REVOKE ddl_admin FROM ' || r.rolname || ';'
+FROM 
+    pg_auth_members m
+JOIN 
+    pg_roles r ON m.member = r.oid
+JOIN 
+    pg_roles p ON m.roleid = p.oid
+WHERE 
+    r.rolname like '%.%';

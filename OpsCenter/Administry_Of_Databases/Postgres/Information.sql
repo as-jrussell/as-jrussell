@@ -1,4 +1,4 @@
--- Replace 'your_role' and 'your_schema'
+/*-- Replace 'your_role' and 'your_schema'
 SELECT
     n.nspname AS schema_name,
     has_schema_privilege('lendinginsights', n.nspname, 'USAGE') AS has_usage
@@ -35,7 +35,7 @@ SELECT * FROM role_inheritance;
 
 
 
-SELECT rolname, rolinherit
+SELECT rolname, rolinherit,*
 FROM pg_roles
 WHERE rolname = 'lendinginsights';
 
@@ -49,19 +49,32 @@ SELECT
 FROM pg_tables
 
 WHERE schemaname NOT LIKE 'pg_%' AND schemaname <> 'information_schema';
-
+*/
 
 
 SELECT
     r.rolname AS role_name,
-    ARRAY_AGG(m.rolname) AS inherited_roles
+    ARRAY_AGG(m.rolname) AS inherited_roles, r.rolcanlogin
 FROM
     pg_roles r
 LEFT JOIN
     pg_auth_members am ON r.oid = am.member
 LEFT JOIN
     pg_roles m ON am.roleid = m.oid
+	WHERE r.rolname like 'db_%'
 GROUP BY
-    r.rolname
-ORDER BY
-    r.rolname;
+    r.rolname, r.rolcanlogin
+	UNION 
+SELECT
+    r.rolname AS role_name,
+    ARRAY_AGG(m.rolname) AS inherited_roles, r.rolcanlogin
+FROM
+    pg_roles r
+LEFT JOIN
+    pg_auth_members am ON r.oid = am.member
+LEFT JOIN
+    pg_roles m ON am.roleid = m.oid
+	WHERE m.rolname like 'db_%'
+GROUP BY
+    r.rolname,r.rolcanlogin
+ORDER BY rolcanlogin ASC,  inherited_roles asc

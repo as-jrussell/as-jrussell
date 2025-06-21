@@ -1,3 +1,5 @@
+USE tempdb
+
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 
@@ -96,3 +98,6 @@ END
 GO
 
 EXEC dbo.CoffeeProtocol  @CoffeeCount  = 0
+
+
+
