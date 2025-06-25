@@ -61,7 +61,7 @@ LEFT JOIN
     pg_auth_members am ON r.oid = am.member
 LEFT JOIN
     pg_roles m ON am.roleid = m.oid
-	WHERE r.rolname like 'db_%'
+	WHERE r.rolname  like '%report_user%'
 GROUP BY
     r.rolname, r.rolcanlogin
 	UNION 
@@ -74,7 +74,53 @@ LEFT JOIN
     pg_auth_members am ON r.oid = am.member
 LEFT JOIN
     pg_roles m ON am.roleid = m.oid
-	WHERE m.rolname like 'db_%'
+	WHERE m.rolname like '%report_user%'
 GROUP BY
     r.rolname,r.rolcanlogin
 ORDER BY rolcanlogin ASC,  inherited_roles asc
+
+
+
+GRANT USAGE ON SCHEMA dba TO PUBLIC;
+
+
+
+
+DO $$
+DECLARE
+    r RECORD;
+BEGIN
+    FOR r IN
+        SELECT
+            n.nspname AS schema_name,
+            p.proname AS function_name,
+            pg_get_function_identity_arguments(p.oid) AS args
+        FROM pg_proc p
+        JOIN pg_namespace n ON p.pronamespace = n.oid
+        WHERE n.nspname = 'dba'
+    LOOP
+        EXECUTE format(
+            'GRANT EXECUTE ON FUNCTION %I.%I(%s) TO PUBLIC;',
+            r.schema_name, r.function_name, r.args
+        );
+        RAISE NOTICE 'Granted EXECUTE on function %I.%I(%s) to PUBLIC.',
+            r.schema_name, r.function_name, r.args;
+    END LOOP;
+END $$;
+
+
+
+
+SELECT
+    n.nspname AS schema_name,
+    p.proname AS function_name,
+    pg_get_function_arguments(p.oid) AS arguments, 
+	  format('DROP FUNCTION %I.%I%s;', n.nspname, p.proname, 
+         '(' || pg_get_function_identity_arguments(p.oid) || ')') AS drop_sql
+FROM pg_proc p
+JOIN pg_namespace n ON n.oid = p.pronamespace
+WHERE n.nspname = 'dba';  -- or whatever schema you want
+
+
+
+
