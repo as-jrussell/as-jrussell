@@ -1,7 +1,7 @@
 /*-- Replace 'your_role' and 'your_schema'
 SELECT
     n.nspname AS schema_name,
-    has_schema_privilege('lendinginsights', n.nspname, 'USAGE') AS has_usage
+    has_schema_privilege('dba_team', n.nspname, 'USAGE') AS has_usage
 FROM pg_namespace n
 WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname <> 'information_schema';
 
@@ -61,7 +61,7 @@ LEFT JOIN
     pg_auth_members am ON r.oid = am.member
 LEFT JOIN
     pg_roles m ON am.roleid = m.oid
-	WHERE r.rolname  like '%report_user%'
+	WHERE r.rolname  like 'db%'
 GROUP BY
     r.rolname, r.rolcanlogin
 	UNION 
@@ -74,39 +74,16 @@ LEFT JOIN
     pg_auth_members am ON r.oid = am.member
 LEFT JOIN
     pg_roles m ON am.roleid = m.oid
-	WHERE m.rolname like '%report_user%'
+	WHERE m.rolname like 'db%'
 GROUP BY
     r.rolname,r.rolcanlogin
 ORDER BY rolcanlogin ASC,  inherited_roles asc
 
 
 
-GRANT USAGE ON SCHEMA dba TO PUBLIC;
 
 
 
-
-DO $$
-DECLARE
-    r RECORD;
-BEGIN
-    FOR r IN
-        SELECT
-            n.nspname AS schema_name,
-            p.proname AS function_name,
-            pg_get_function_identity_arguments(p.oid) AS args
-        FROM pg_proc p
-        JOIN pg_namespace n ON p.pronamespace = n.oid
-        WHERE n.nspname = 'dba'
-    LOOP
-        EXECUTE format(
-            'GRANT EXECUTE ON FUNCTION %I.%I(%s) TO PUBLIC;',
-            r.schema_name, r.function_name, r.args
-        );
-        RAISE NOTICE 'Granted EXECUTE on function %I.%I(%s) to PUBLIC.',
-            r.schema_name, r.function_name, r.args;
-    END LOOP;
-END $$;
 
 
 

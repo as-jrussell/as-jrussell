@@ -12,9 +12,32 @@ BEGIN
 END
 $$;
 
+
+DO $$
+DECLARE
+    func_oid oid;
+BEGIN
+  
+           SELECT oid INTO func_oid
+		   --select proargtypes,*
+		   FROM pg_proc WHERE proname = 'whoisactive' 
+		   AND proargtypes = '25 16 16'::oidvector;  -- 25=text, 16=boolean
+
+
+
+
+    IF func_oid IS NOT NULL THEN
+        EXECUTE 'DROP FUNCTION dba.whoisactive(text, boolean, boolean)';
+        RAISE NOTICE 'Function dba.whoisactive(text, boolean, boolean) dropped.';
+    ELSE
+        RAISE NOTICE 'Function dba.whoisactive(text, boolean, boolean) does not exist.';
+    END IF;
+END
+$$;
+
 -- DROP FUNCTION dba.whoisactive(text,boolean,boolean)
 
-CREATE OR REPLACE FUNCTION dba.whoisactive (
+CREATE OR REPLACE FUNCTION dba.sp_whoisactive (
     p_database_name TEXT DEFAULT NULL,
     p_show_idle_in_transaction BOOLEAN DEFAULT FALSE,
     p_show_all_idle BOOLEAN DEFAULT FALSE
