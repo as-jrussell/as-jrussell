@@ -28,6 +28,19 @@ raw_acls AS (
     FROM pg_default_acl
 ),
 
+interhited_roles AS (SELECT
+    r.rolname AS role_name,
+    ARRAY_AGG(m.rolname) AS inherited_role
+FROM
+    pg_roles r
+LEFT JOIN
+    pg_auth_members am ON r.oid = am.member
+LEFT JOIN
+    pg_roles m ON am.roleid = m.oid
+GROUP BY
+    r.rolname)
+,
+
 expanded_defaults AS (
     SELECT *,
         CASE
@@ -51,25 +64,33 @@ expanded_defaults AS (
 SELECT 
     schema,
     grantee,
-    privilege,
+    privilege, inherited_role,
     'actual_schema_privilege' AS source
 FROM schema_create_privs
+LEFT JOIN interhited_roles on schema_create_privs.grantee = interhited_roles.role_name
+WHERE 	schema <> 'public'
+
 
 UNION ALL
 
 SELECT 
     schema,
     grantee,
-    privilege,
+    privilege,inherited_role,
     'actual_schema_privilege' AS source
 FROM schema_usage_privs
+LEFT JOIN interhited_roles on schema_usage_privs.grantee = interhited_roles.role_name	
+WHERE 	schema <> 'public'
 
 UNION ALL
 
 SELECT 
     schema::text,
     grantee,
-    readable_privileges,
+    readable_privileges,inherited_role,
     'default_acl' AS source
 FROM expanded_defaults
+LEFT JOIN interhited_roles on expanded_defaults.grantee  = interhited_roles.role_name
+WHERE 	schema::text <> 'public'
 ORDER BY grantee, schema, privilege;
+

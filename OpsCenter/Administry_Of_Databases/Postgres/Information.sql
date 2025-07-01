@@ -49,6 +49,23 @@ SELECT
 FROM pg_tables
 
 WHERE schemaname NOT LIKE 'pg_%' AND schemaname <> 'information_schema';
+
+
+
+
+SELECT
+    n.nspname AS schema_name,
+    p.proname AS function_name,
+    pg_get_function_arguments(p.oid) AS arguments, 
+	  format('DROP FUNCTION %I.%I%s;', n.nspname, p.proname, 
+         '(' || pg_get_function_identity_arguments(p.oid) || ')') AS drop_sql
+FROM pg_proc p
+JOIN pg_namespace n ON n.oid = p.pronamespace
+WHERE n.nspname = 'dba';  -- or whatever schema you want
+
+
+
+
 */
 
 
@@ -83,20 +100,6 @@ ORDER BY rolcanlogin ASC,  inherited_roles asc
 
 
 
-
-
-
-
-
-SELECT
-    n.nspname AS schema_name,
-    p.proname AS function_name,
-    pg_get_function_arguments(p.oid) AS arguments, 
-	  format('DROP FUNCTION %I.%I%s;', n.nspname, p.proname, 
-         '(' || pg_get_function_identity_arguments(p.oid) || ')') AS drop_sql
-FROM pg_proc p
-JOIN pg_namespace n ON n.oid = p.pronamespace
-WHERE n.nspname = 'dba';  -- or whatever schema you want
 
 
 

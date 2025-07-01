@@ -97,7 +97,7 @@ BEGIN
 END
 GO
 
-EXEC dbo.CoffeeProtocol  @CoffeeCount  = 0
+EXEC dbo.CoffeeProtocol  @CoffeeCount  = 1
 
 
 

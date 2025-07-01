@@ -2,12 +2,12 @@
 DO $$
 BEGIN
     IF NOT EXISTS (
-        SELECT 1 FROM pg_namespace WHERE nspname = 'dba'
+        SELECT 1 FROM pg_namespace WHERE nspname = 'info'
     ) THEN
-        EXECUTE 'CREATE SCHEMA dba AUTHORIZATION current_user';
-        RAISE NOTICE 'Schema "dba" created.';
+        EXECUTE 'CREATE SCHEMA info AUTHORIZATION current_user';
+        RAISE NOTICE 'Schema "info" created.';
     ELSE
-        RAISE NOTICE 'Schema "dba" already exists.';
+        RAISE NOTICE 'Schema "info" already exists.';
     END IF;
 END
 $$;
@@ -16,10 +16,10 @@ DO $$
 BEGIN
     IF NOT EXISTS (
         SELECT 1 FROM information_schema.tables 
-        WHERE table_schema = 'dba' AND table_name = 'password_change_audit'
+        WHERE table_schema = 'info' AND table_name = 'password_change_audit'
     ) THEN
         EXECUTE '
-            CREATE TABLE dba.password_change_audit (
+            CREATE TABLE info.password_change_audit (
                 audit_id SERIAL PRIMARY KEY,
                 changed_at TIMESTAMPTZ DEFAULT now(),
                 changed_by TEXT NOT NULL,
@@ -27,35 +27,15 @@ BEGIN
                 note TEXT
             )
         ';
-        RAISE NOTICE 'Table "dba.password_change_audit" created.';
+        RAISE NOTICE 'Table "info.password_change_audit" created.';
     ELSE
-        RAISE NOTICE 'Table "dba.password_change_audit" already exists.';
+        RAISE NOTICE 'Table "info.password_change_audit" already exists.';
     END IF;
 END
 $$;
 
 
-DO $$
-DECLARE
-    func_oid oid;
-BEGIN
-
-    SELECT oid INTO func_oid
-    FROM pg_proc
-    WHERE proname = 'setpassword'
-      AND proargtypes = '25 25'::oidvector;  -- 25=text, 16=boolean
-
-    IF func_oid IS NOT NULL THEN
-        EXECUTE 'DROP FUNCTION dba.setpassword(text, text)';
-        RAISE NOTICE 'Function dba.setpassword(text, text) dropped.';
-    ELSE
-        RAISE NOTICE 'Function dba.setpassword(text, text) does not exist.';
-    END IF;
-END
-$$ LANGUAGE plpgsql;
-
-
-CREATE OR REPLACE FUNCTION dba.SetPassword(
+CREATE OR REPLACE FUNCTION info.SetPassword(
     target_username TEXT,
     new_password TEXT
 )
@@ -85,8 +65,8 @@ BEGIN
     IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = target_username) THEN
         EXECUTE format('ALTER ROLE %I WITH PASSWORD %L', target_username, new_password);
         
-        INSERT INTO dba.password_change_audit (changed_by, changed_user, note)
-        VALUES (caller, target_username, 'Password changed via dba.safe_change_password');
+        INSERT INTO info.password_change_audit (changed_by, changed_user, note)
+        VALUES (caller, target_username, 'Password changed via info.safe_change_password');
 
         -- Return success message
         RAISE NOTICE 'SUCCESS: Password changed for user %', target_username;
@@ -97,11 +77,11 @@ END;
 $$
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = dba, public;
+SET search_path = info, public;
 
 DO $$
 BEGIN
-    RAISE NOTICE 'To execute password change: SELECT dba.SetPassword(''username'', ''password'')';
+    RAISE NOTICE 'To execute password change: SELECT info.SetPassword(''username'', ''password'')';
 END;
 $$ LANGUAGE plpgsql;
 
