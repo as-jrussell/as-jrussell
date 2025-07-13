@@ -1,0 +1,1 @@
+-- SQL to assign privileges to roles.

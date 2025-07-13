@@ -1,4 +1,5 @@
 
+
 DO $$
 BEGIN
     IF NOT EXISTS (
@@ -26,6 +27,21 @@ BEGIN
                 changed_user TEXT NOT NULL,
                 note TEXT
             )
+
+		ALTER TABLE IF EXISTS info.password_change_audit
+    OWNER to dba_team;
+
+REVOKE ALL ON TABLE info.password_change_audit FROM db_datareader;
+REVOKE ALL ON TABLE info.password_change_audit FROM db_datawriter;
+
+GRANT SELECT ON TABLE info.password_change_audit TO db_datareader;
+
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE info.password_change_audit TO db_datawriter;
+
+GRANT ALL ON TABLE info.password_change_audit TO db_ddladmin;
+
+GRANT ALL ON TABLE info.password_change_audit TO dba_team;
+	
         ';
         RAISE NOTICE 'Table "info.password_change_audit" created.';
     ELSE
@@ -33,6 +49,8 @@ BEGIN
     END IF;
 END
 $$;
+
+
 
 
 CREATE OR REPLACE FUNCTION info.SetPassword(

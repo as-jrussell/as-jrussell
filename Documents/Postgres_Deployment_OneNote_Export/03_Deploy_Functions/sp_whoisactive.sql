@@ -1,0 +1,1 @@
+-- Function: info.sp_whoisactive

@@ -5,7 +5,8 @@ DECLARE @HostName  NVARCHAR(50)=''
 DECLARE @DatabaseName NVARCHAR(50)=''
 DECLARE @sessionid INT=''
 DECLARE @ProgramFiles NVARCHAR(100) = ''
-DECLARE @Info NVARCHAR(1) = ''
+DECLARE @Info NVARCHAR(1) = 'Y'
+
 
 
 
@@ -13,7 +14,7 @@ IF @info = 'Y' AND (@DatabaseName <> '' OR @UserName <> '' OR @HostName <> '')
   BEGIN
       SELECT des.session_id,dec.client_net_address,
              des.host_name,des.login_name,
-             dest.text, 
+             dest.text, DB.name,
              login_time,last_request_start_time, last_request_end_time, CONCAT('KILL ', des.session_id) [End Session?]
       FROM   sys.dm_exec_sessions AS des
              INNER JOIN sys.dm_exec_connections AS dec

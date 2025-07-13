@@ -44,3 +44,18 @@ ELSE
       PRINT 'EC2 OR ON-PREM INSTANCE'
   END 
 
+
+
+--  -- Check current wait types
+--SELECT last_wait_type, * 
+--FROM sys.dm_exec_requests WHERE command = 'RESTORE DATABASE';
+
+
+
+--SELECT percent_complete, start_time, estimated_completion_time, status
+--FROM sys.dm_exec_requests
+--WHERE command LIKE 'RESTORE%';
+
+
+
+select getdate() 

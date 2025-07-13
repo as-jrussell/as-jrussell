@@ -61,7 +61,7 @@ SELECT
          '(' || pg_get_function_identity_arguments(p.oid) || ')') AS drop_sql
 FROM pg_proc p
 JOIN pg_namespace n ON n.oid = p.pronamespace
-WHERE n.nspname = 'dba';  -- or whatever schema you want
+WHERE n.nspname = 'deploy';  -- or whatever schema you want
 
 
 
