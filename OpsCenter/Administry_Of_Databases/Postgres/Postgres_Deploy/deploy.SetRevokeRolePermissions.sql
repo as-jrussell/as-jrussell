@@ -4,7 +4,6 @@
 --              optionally drops roles, and logs actions.
 -- OWNER: dba_team
 -- ===============================================
-
 CREATE OR REPLACE FUNCTION deploy.SetRevokeRolePermissions(
     p_role_names TEXT[],
     p_users_to_remove TEXT[] DEFAULT NULL,
@@ -30,7 +29,7 @@ DECLARE
 BEGIN
     FOREACH v_role IN ARRAY p_role_names LOOP
 
-        -- 🔓 Remove role from users
+        -- Remove role from users
         IF p_users_to_remove IS NOT NULL THEN
             FOREACH v_user IN ARRAY p_users_to_remove LOOP
                 v_sql := format('REVOKE %I FROM %I;', v_role, v_user);
@@ -42,7 +41,7 @@ BEGIN
             END LOOP;
         END IF;
 
-        -- 🔐 Revoke schema/table/function privileges
+        --Revoke schema/table/function privileges
         IF p_schema_targets IS NOT NULL THEN
             FOREACH v_schema IN ARRAY p_schema_targets LOOP
 
@@ -72,7 +71,7 @@ BEGIN
             END LOOP;
         END IF;
 
-        -- ❌ Drop Role if requested
+        -- Drop Role if requested
         IF p_drop_roles THEN
             v_sql := format('DROP ROLE IF EXISTS %I;', v_role);
             IF p_execute_flag THEN EXECUTE v_sql; END IF;
@@ -81,13 +80,11 @@ BEGIN
             VALUES ('DROP_ROLE', v_role, NULL, v_log_status, v_sql, 'Dropped role');
             v_log := v_log || v_sql || E'\n';
         END IF;
-
+		
     END LOOP;
-
     RETURN v_log;
 END;
 $$;
-
 ALTER FUNCTION deploy.SetRevokeRolePermissions(
     TEXT[], TEXT[], TEXT[], TEXT[], TEXT[],
     BOOLEAN, BOOLEAN

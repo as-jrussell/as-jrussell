@@ -11,7 +11,7 @@ DECLARE
     v_sql TEXT;
     v_log_status TEXT;
 BEGIN
-    -- 🔍 Check if the schema exists
+    -- ðŸ” Check if the schema exists
     SELECT EXISTS (
         SELECT 1 FROM information_schema.schemata WHERE schema_name = p_schema_name
     ) INTO v_exists;
@@ -28,13 +28,13 @@ BEGIN
             NULL,
             v_log_status,
             NULL,
-            'No schema dropped — not found.'
+            'No schema dropped â€” not found.'
         );
 
         RETURN format('Schema "%s" does not exist.', p_schema_name);
     END IF;
 
-    -- 🔨 Build the DROP SCHEMA command
+    -- ðŸ”¨ Build the DROP SCHEMA command
     v_sql := format('DROP SCHEMA %I %s',
         p_schema_name,
         CASE WHEN p_cascade THEN 'CASCADE' ELSE 'RESTRICT' END
@@ -50,7 +50,7 @@ BEGIN
         v_log_status := 'DRY_RUN';
     END IF;
 
-    -- 🧾 Log it
+    -- ðŸ§¾ Log it
     INSERT INTO dba.object_log_history (
         action_type, target_entity, associated_entity, status, sql_command, message
     ) VALUES (

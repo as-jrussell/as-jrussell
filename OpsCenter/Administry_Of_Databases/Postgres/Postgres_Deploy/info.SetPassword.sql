@@ -1,4 +1,9 @@
+-- ✅ PostgreSQL-Compatible Password Audit Setup
+-- Filename: 13_info.SetPassword_FIXED.sql
 
+-- ============================================================
+-- STEP 1: Ensure info schema exists
+-- ============================================================
 
 DO $$
 BEGIN
@@ -13,36 +18,34 @@ BEGIN
 END
 $$;
 
+-- ============================================================
+-- STEP 2: Create info.password_change_audit table safely
+-- ============================================================
+
 DO $$
 BEGIN
     IF NOT EXISTS (
         SELECT 1 FROM information_schema.tables 
         WHERE table_schema = 'info' AND table_name = 'password_change_audit'
     ) THEN
-        EXECUTE '
-            CREATE TABLE info.password_change_audit (
-                audit_id SERIAL PRIMARY KEY,
-                changed_at TIMESTAMPTZ DEFAULT now(),
-                changed_by TEXT NOT NULL,
-                changed_user TEXT NOT NULL,
-                note TEXT
-            )
+        CREATE TABLE info.password_change_audit (
+            audit_id SERIAL PRIMARY KEY,
+            changed_at TIMESTAMPTZ DEFAULT now(),
+            changed_by TEXT NOT NULL,
+            changed_user TEXT NOT NULL,
+            note TEXT
+        );
 
-		ALTER TABLE IF EXISTS info.password_change_audit
-    OWNER to dba_team;
+        ALTER TABLE info.password_change_audit OWNER TO dba_team;
 
-REVOKE ALL ON TABLE info.password_change_audit FROM db_datareader;
-REVOKE ALL ON TABLE info.password_change_audit FROM db_datawriter;
+        REVOKE ALL ON TABLE info.password_change_audit FROM db_datareader;
+        REVOKE ALL ON TABLE info.password_change_audit FROM db_datawriter;
 
-GRANT SELECT ON TABLE info.password_change_audit TO db_datareader;
+        GRANT SELECT ON TABLE info.password_change_audit TO db_datareader;
+        GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE info.password_change_audit TO db_datawriter;
+        GRANT ALL ON TABLE info.password_change_audit TO db_ddladmin;
+        GRANT ALL ON TABLE info.password_change_audit TO dba_team;
 
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE info.password_change_audit TO db_datawriter;
-
-GRANT ALL ON TABLE info.password_change_audit TO db_ddladmin;
-
-GRANT ALL ON TABLE info.password_change_audit TO dba_team;
-	
-        ';
         RAISE NOTICE 'Table "info.password_change_audit" created.';
     ELSE
         RAISE NOTICE 'Table "info.password_change_audit" already exists.';
@@ -50,8 +53,9 @@ GRANT ALL ON TABLE info.password_change_audit TO dba_team;
 END
 $$;
 
-
-
+-- ============================================================
+-- STEP 3: Create SetPassword Function
+-- ============================================================
 
 CREATE OR REPLACE FUNCTION info.SetPassword(
     target_username TEXT,
@@ -82,11 +86,10 @@ BEGIN
     -- Explicit check for user existence
     IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = target_username) THEN
         EXECUTE format('ALTER ROLE %I WITH PASSWORD %L', target_username, new_password);
-        
+
         INSERT INTO info.password_change_audit (changed_by, changed_user, note)
         VALUES (caller, target_username, 'Password changed via info.safe_change_password');
 
-        -- Return success message
         RAISE NOTICE 'SUCCESS: Password changed for user %', target_username;
     ELSE
         RAISE EXCEPTION 'User "%" does not exist', target_username;
@@ -97,9 +100,9 @@ LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = info, public;
 
+-- Helper usage reminder
 DO $$
 BEGIN
-    RAISE NOTICE 'To execute password change: SELECT info.SetPassword(''username'', ''password'')';
-END;
+    RAISE NOTICE 'To execute password change: SELECT info.SetPassword(''username'', ''newPassword'');';
+END
 $$ LANGUAGE plpgsql;
-

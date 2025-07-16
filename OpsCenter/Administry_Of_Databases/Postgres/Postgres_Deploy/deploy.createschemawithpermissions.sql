@@ -14,10 +14,10 @@ CREATE OR REPLACE FUNCTION deploy.createschemawithpermissions(
 AS $BODY$
 /*
 ============================================================
-📘 USAGE EXAMPLES: deploy.CreateSchemaWithPermissions()
+ USAGE EXAMPLES: deploy.CreateSchemaWithPermissions()
 ============================================================
 
--- 🧪 Dry-run mode
+-- ðŸ§ª Dry-run mode
 SELECT deploy.CreateSchemaWithPermissions(
     p_schema_name := 'audit',
     p_owner := 'jrussell',
@@ -25,7 +25,7 @@ SELECT deploy.CreateSchemaWithPermissions(
     p_execute_flag := FALSE
 );
 
--- ⚙️ Execute schema creation with role grants and default privileges
+--  Execute schema creation with role grants and default privileges
 SELECT deploy.CreateSchemaWithPermissions(
     p_schema_name := 'audit',
     p_owner := 'jrussell',
@@ -33,7 +33,7 @@ SELECT deploy.CreateSchemaWithPermissions(
     p_execute_flag := TRUE
 );
 
--- 🚫 Will skip creation if schema exists
+-- Will skip creation if schema exists
 SELECT deploy.CreateSchemaWithPermissions('public', 'postgres', ARRAY['readonly'], TRUE);
 ============================================================
 */
@@ -44,7 +44,7 @@ DECLARE
     v_role TEXT;
     v_log_status TEXT;
 BEGIN
-    -- 🔍 Check if schema already exists
+    -- Check if schema already exists
     SELECT EXISTS (
         SELECT 1 FROM information_schema.schemata WHERE schema_name = p_schema_name
     ) INTO v_exists;
@@ -67,7 +67,7 @@ BEGIN
         RETURN format('Schema "%s" already exists.', p_schema_name);
     END IF;
 
-    -- ✨ Create schema
+    --Create schema
     v_sql := format('CREATE SCHEMA %I AUTHORIZATION %I', p_schema_name, p_owner);
     RAISE NOTICE '[DRY-RUN] Would create schema: %', p_schema_name;
 
@@ -90,7 +90,7 @@ BEGIN
         'Schema creation completed.'
     );
 
-    -- 🔐 Grant USAGE on schema
+    -- Grant USAGE on schema
     IF p_grant_roles IS NOT NULL THEN
         FOREACH v_role IN ARRAY p_grant_roles LOOP
             v_sql := format('GRANT USAGE ON SCHEMA %I TO %I', p_schema_name, v_role);
@@ -115,7 +115,7 @@ BEGIN
         END LOOP;
     END IF;
 
-    -- 🔧 Set default privileges for future tables
+    -- Set default privileges for future tables
     IF p_execute_flag THEN
         -- db_datareader: SELECT
         v_sql := format('ALTER DEFAULT PRIVILEGES FOR ROLE %I IN SCHEMA %I GRANT SELECT ON TABLES TO db_datareader', p_owner, p_schema_name);
