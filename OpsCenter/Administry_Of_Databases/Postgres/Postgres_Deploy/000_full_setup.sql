@@ -70,6 +70,8 @@ set role dba_team;
 -- ✅ STEP 15: Drop Schema Function
 \i deploy.DropSchemaWithCleanup.sql
 
+-- ✅ STEP 16: SetDatabaseConnectionLimit
+\i SetDatabaseConnectionLimit.sql
 
 
 
@@ -77,5 +79,5 @@ set role dba_team;
 -- DONE 🎉 Output logs will show DRY_RUN or EXECUTED based on flag
 -- ==============================================================
 
--- ✅ STEP 16: Extra Credit
+-- ✅ STEP 17: Extra Credit
 \i DatabaseName.sql

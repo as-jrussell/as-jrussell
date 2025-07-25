@@ -1,0 +1,1094 @@
+🔧 Initial Setup Log - Fri Jul 25 13:40:33 EDT 2025
+=== localhost ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  role "dbadmin" does not exist
+GRANT
+GRANT
+psql:DBA_database_creation.sql:17: ERROR:  role "dbadmin" does not exist
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on localhost
+=== arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Schema_creation.sql:60: NOTICE:  schema "admin" already exists, skipping
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com
+=== psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com
+=== psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+psql:DBA_database_creation.sql:13: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:15: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:17: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:20: ERROR:  database "DBA" does not exist
+psql:C:/Users/jrussell/AppData/Local/Temp/tmp.oNlyQaFHjl:20: error: \connect: connection to server at "psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.26.43), port 5432 failed: FATAL:  database "DBA" does not exist
+❌ ERROR on psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+psql:DBA_database_creation.sql:13: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:15: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:17: ERROR:  database "DBA" does not exist
+psql:DBA_database_creation.sql:20: ERROR:  database "DBA" does not exist
+psql:C:/Users/jrussell/AppData/Local/Temp/tmp.HoFSfQyCZE:20: error: \connect: connection to server at "dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.24.19), port 5432 failed: FATAL:  database "DBA" does not exist
+❌ ERROR on dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com
+=== refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com
+=== psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com ===
+psql:Role_creations.sql:14: NOTICE:  Role "db_ddladmin" already exists.
+DO
+psql:Role_creations.sql:29: NOTICE:  Role "db_ddladmin_c" already exists.
+DO
+psql:Role_creations.sql:42: NOTICE:  Role "db_datawriter" already exists.
+DO
+psql:Role_creations.sql:55: NOTICE:  Role "db_datareader" already exists.
+DO
+psql:Role_creations.sql:69: NOTICE:  Role "dba_team" already exists.
+DO
+psql:Role_creations.sql:89: NOTICE:  Grant db_datawriter to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:108: NOTICE:  Grant db_ddladmin to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:127: NOTICE:  Grant db_datareader to dba_team already exists or roles missing.
+DO
+psql:Role_creations.sql:147: NOTICE:  Grant db_ddladmin_c to dba_team already exists or roles missing.
+DO
+psql:DBA_database_creation.sql:9: ERROR:  permission denied to create database
+GRANT
+GRANT
+GRANT
+GRANT
+You are now connected to database "DBA" as user "jrussell".
+SET
+SET
+psql:Schema_creation.sql:18: NOTICE:  Schema "info" already exists.
+DO
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+psql:Schema_creation.sql:49: NOTICE:  Schema "deploy" already exists.
+DO
+GRANT
+GRANT
+GRANT
+REVOKE
+CREATE SCHEMA
+GRANT
+GRANT
+GRANT
+REVOKE
+psql:Tablecreations.sql:47: NOTICE:  Table "info.account_log_history" already exists.
+DO
+psql:Tablecreations.sql:83: NOTICE:  Table "info.object_log_history" already exists.
+DO
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:deploy.SetCreateUser.sql:187: ERROR:  loop variable of loop over rows must be a record variable or list of scalar variables
+LINE 154:                 FOR v_target_db IN
+                              ^
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+psql:info.SetPassword.sql:19: NOTICE:  Schema "info" already exists.
+DO
+psql:info.SetPassword.sql:54: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:info.SetPassword.sql:108: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+ALTER FUNCTION
+CREATE FUNCTION
+✅ SUCCESS on refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com

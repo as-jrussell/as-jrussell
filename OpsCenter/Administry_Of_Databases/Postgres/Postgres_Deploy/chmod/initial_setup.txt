@@ -1,0 +1,16 @@
+localhost
+arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com
+psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com
+lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com
+lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com
+lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com
+psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com
+dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com
+refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com
+refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com
+refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com
+psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com
+refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com
+

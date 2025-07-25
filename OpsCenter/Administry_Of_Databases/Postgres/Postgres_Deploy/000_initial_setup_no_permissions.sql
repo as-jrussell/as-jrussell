@@ -1,7 +1,6 @@
 -- ==============================================================
 -- 🚀 INITIAL INFRASTRUCTURE SETUP — Roles + Database
 -- ==============================================================
-
 -- 🔁 DRY-RUN / EXECUTION FLAG (optional)
 -- \set execute_flag TRUE
 
@@ -66,3 +65,7 @@ set role dba_team;
 
 -- ✅ STEP 14: Drop Schema Function
 \i deploy.DropSchemaWithCleanup.sql
+
+-- ✅ STEP 15: SetDatabaseConnectionLimit
+\i SetDatabaseConnectionLimit.sql
+

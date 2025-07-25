@@ -52,6 +52,14 @@ WHERE schemaname NOT LIKE 'pg_%' AND schemaname <> 'information_schema';
 
 
 
+SELECT * FROM INFO.account_log_history
+
+
+SELECT * FROM INFO.object_log_history
+
+
+
+SELECT * FROM INFO.password_change_audit
 
 SELECT
     n.nspname AS schema_name,
@@ -95,6 +103,7 @@ LEFT JOIN
 GROUP BY
     r.rolname,r.rolcanlogin
 ORDER BY rolcanlogin ASC,  inherited_roles asc
+
 
 
 

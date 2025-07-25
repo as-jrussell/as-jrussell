@@ -63,4 +63,4 @@ foreach ($profile in $profiles) {
 $results | Format-Table -AutoSize
 
 # 💾 Optional: Export to CSV
-# $results | Export-Csv -NoTypeInformation -Path "aws_postgres_discovery.csv"
+ $results | Export-Csv -NoTypeInformation -Path "C:\GitHub\as-jrussell\AWS_CLI\aws_postgres_discovery.csv"
