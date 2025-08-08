@@ -1,0 +1,1536 @@
+🔧 Initial Setup Log - 20250805_0901
+🚀 Running on localhost...
+=== localhost ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+UPDATE 1
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on MyVeryFirstPosgresSQLDB...
+📄 [MyVeryFirstPosgresSQLDB] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "localhost" -p "5432" -d "MyVeryFirstPosgresSQLDB" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com...
+=== arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on arm_api...
+📄 [arm_api] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" -p "5432" -d "arm_api" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com...
+=== psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on arm_api...
+📄 [arm_api] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" -p "5432" -d "arm_api" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com...
+=== lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:42: ERROR:  unrecognized configuration parameter "transaction_timeout"
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on lendinginsights...
+📄 [lendinginsights] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" -p "5432" -d "lendinginsights" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com...
+=== lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:42: ERROR:  unrecognized configuration parameter "transaction_timeout"
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on lendinginsights...
+📄 [lendinginsights] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" -p "5432" -d "lendinginsights" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com...
+=== lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:42: ERROR:  unrecognized configuration parameter "transaction_timeout"
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on lendinginsights...
+📄 [lendinginsights] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" -p "5432" -d "lendinginsights" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com...
+=== lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:42: ERROR:  unrecognized configuration parameter "transaction_timeout"
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on lendinginsights...
+📄 [lendinginsights] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" -p "5432" -d "lendinginsights" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com...
+=== refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on dealer_portal...
+📄 [dealer_portal] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d "dealer_portal" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+psql: error: connection to server at "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.172), port 5432 failed: FATAL:  database "dealer_portal" does not exist
+❌ ERROR running /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql against dealer_portal
+--- FAILED COMMAND ---
+psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d "dealer_portal" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+--- BEGIN FAILED SCRIPT: /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql ---
+-- ============================================
+-- Function: dynamic schema.GetPrivileges(p_role TEXT DEFAULT '')
+-- Purpose: Retrieve role privileges across schemas and database
+-- Version-safe: Includes default ACL parsing only if PG >= 140000
+-- ============================================
+set role dba_team; 
+
+DO $$
+DECLARE
+    v_sql TEXT;
+    v_schema TEXT;
+    v_version INT := current_setting('server_version_num')::INT;
+BEGIN
+    -- Determine the schema for the function based on the current database
+    IF current_database() = 'DBA' THEN
+        v_schema := 'info';
+    ELSIF current_database() IN ('postgres', 'rdsadmin') THEN
+        RAISE NOTICE 'Skipping function creation in system DB: %', current_database();
+        RETURN; -- Exit if in a system database
+    ELSE
+        v_schema := 'dba';
+    END IF;
+
+    -- Construct the dynamic SQL for creating or replacing the function
+    v_sql := '
+    CREATE OR REPLACE FUNCTION ' || quote_ident(v_schema) || '.GetPrivileges(p_role TEXT DEFAULT '''')
+    RETURNS TABLE (
+        object_scope TEXT,
+        grantee TEXT,
+        privilege TEXT,
+        inherited_role TEXT,
+        source TEXT
+    )
+    LANGUAGE plpgsql AS
+    $func$
+    DECLARE
+        v_ver INT := current_setting(''server_version_num'')::INT;
+    BEGIN
+        RETURN QUERY
+        -- CTE to get roles and their directly inherited roles
+        WITH inherited_roles AS (
+            SELECT
+                r.rolname AS role_name,
+                string_agg(m.rolname, '','' ORDER BY m.rolname) AS inherited_role
+            FROM pg_roles r
+            LEFT JOIN pg_auth_members am ON r.oid = am.member
+            LEFT JOIN pg_roles m ON am.roleid = m.oid
+            GROUP BY r.rolname
+        ),
+        -- CTE for schema CREATE privileges
+        schema_create AS (
+            SELECT
+                n.nspname::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                ''CREATE''::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_schema_privilege''::TEXT AS source
+            FROM pg_namespace n
+            JOIN pg_roles r ON has_schema_privilege(r.rolname, n.oid, ''CREATE'')
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+            WHERE n.nspname NOT LIKE ''pg_%'' AND n.nspname <> ''information_schema''
+        ),
+        -- CTE for schema USAGE privileges
+        schema_usage AS (
+            SELECT
+                n.nspname::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                ''USAGE''::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_schema_privilege''::TEXT AS source
+            FROM pg_namespace n
+            JOIN pg_roles r ON has_schema_privilege(r.rolname, n.oid, ''USAGE'')
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+            WHERE n.nspname NOT LIKE ''pg_%'' AND n.nspname <> ''information_schema''
+        ),
+        -- CTE for database-level privileges (CREATE, TEMP, CONNECT)
+        db_privs AS (
+            SELECT
+                current_database()::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                unnest(string_to_array(
+                    TRIM(BOTH '','' FROM
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''CREATE'') THEN ''CREATE,'' ELSE '''' END ||
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''TEMP'') THEN ''TEMP,'' ELSE '''' END ||
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''CONNECT'') THEN ''CONNECT'' ELSE '''' END
+                    ), '',''))::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_database_privilege''::TEXT AS source
+            FROM pg_roles r
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+        ),
+        -- CTE to extract raw ACL entries from pg_default_acl for PG 14+
+        raw_acls AS (
+            SELECT
+                pda.defaclnamespace::regnamespace::TEXT AS object_scope,
+                (regexp_matches(acl_entry::TEXT, ''^(.+?)=([a-zA-Z]*)/?(.+)?$''))[1]::TEXT AS grantee,
+                (regexp_matches(acl_entry::TEXT, ''^(.+?)=([a-zA-Z]*)/?(.+)?$''))[2]::TEXT AS privs_raw
+            FROM pg_default_acl pda, unnest(pda.defaclacl) AS acl_entry
+            WHERE current_setting(''server_version_num'')::INT >= 140000
+        ),
+        -- CTE to expand raw ACL characters into full privilege names
+        expanded_acls AS (
+            SELECT
+                ra.object_scope,
+                ra.grantee,
+                CASE
+                    WHEN ra.privs_raw IS NULL THEN NULL
+                    ELSE array_to_string(ARRAY(
+                        SELECT priv_subquery.privilege FROM (
+                            SELECT CASE WHEN ra.privs_raw LIKE ''%a%'' THEN ''INSERT'' END AS privilege
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%r%'' THEN ''SELECT'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%w%'' THEN ''UPDATE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%d%'' THEN ''DELETE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%D%'' THEN ''TRUNCATE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%x%'' THEN ''REFERENCES'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%t%'' THEN ''TRIGGER'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%X%'' THEN ''EXECUTE'' END
+                        ) AS priv_subquery WHERE priv_subquery.privilege IS NOT NULL ORDER BY priv_subquery.privilege
+                    ), '','')
+                END AS privilege,
+                ir.inherited_role,
+                ''default_acl''::TEXT AS source
+            FROM raw_acls ra
+            LEFT JOIN inherited_roles ir ON ra.grantee = ir.role_name
+        )
+
+        -- Combine all privilege types and filter by p_role if provided
+        SELECT sc.object_scope, sc.grantee, sc.privilege, sc.inherited_role, sc.source FROM schema_create sc WHERE p_role = '''' OR sc.grantee = p_role
+        UNION ALL
+        SELECT su.object_scope, su.grantee, su.privilege, su.inherited_role, su.source FROM schema_usage su WHERE p_role = '''' OR su.grantee = p_role
+        UNION ALL
+        SELECT db.object_scope, db.grantee, db.privilege, db.inherited_role, db.source FROM db_privs db WHERE p_role = '''' OR db.grantee = p_role
+        UNION ALL
+        SELECT ea.object_scope, ea.grantee, ea.privilege, ea.inherited_role, ea.source FROM expanded_acls ea WHERE p_role = '''' OR ea.grantee = p_role
+        ORDER BY grantee, object_scope, privilege;
+    END;
+    $func$;
+    ';
+
+    -- Execute the dynamically constructed SQL to create the function
+    EXECUTE v_sql;
+END $$;
+--- END FAILED SCRIPT ---
+🔁 Running on dealer-portal...
+📄 [dealer-portal] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d "dealer-portal" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+psql: error: connection to server at "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.172), port 5432 failed: FATAL:  too many connections for database "dealer-portal"
+❌ ERROR running /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql against dealer-portal
+--- FAILED COMMAND ---
+psql -U "jrussell" -h "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d "dealer-portal" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+--- BEGIN FAILED SCRIPT: /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql ---
+-- ============================================
+-- Function: dynamic schema.GetPrivileges(p_role TEXT DEFAULT '')
+-- Purpose: Retrieve role privileges across schemas and database
+-- Version-safe: Includes default ACL parsing only if PG >= 140000
+-- ============================================
+set role dba_team; 
+
+DO $$
+DECLARE
+    v_sql TEXT;
+    v_schema TEXT;
+    v_version INT := current_setting('server_version_num')::INT;
+BEGIN
+    -- Determine the schema for the function based on the current database
+    IF current_database() = 'DBA' THEN
+        v_schema := 'info';
+    ELSIF current_database() IN ('postgres', 'rdsadmin') THEN
+        RAISE NOTICE 'Skipping function creation in system DB: %', current_database();
+        RETURN; -- Exit if in a system database
+    ELSE
+        v_schema := 'dba';
+    END IF;
+
+    -- Construct the dynamic SQL for creating or replacing the function
+    v_sql := '
+    CREATE OR REPLACE FUNCTION ' || quote_ident(v_schema) || '.GetPrivileges(p_role TEXT DEFAULT '''')
+    RETURNS TABLE (
+        object_scope TEXT,
+        grantee TEXT,
+        privilege TEXT,
+        inherited_role TEXT,
+        source TEXT
+    )
+    LANGUAGE plpgsql AS
+    $func$
+    DECLARE
+        v_ver INT := current_setting(''server_version_num'')::INT;
+    BEGIN
+        RETURN QUERY
+        -- CTE to get roles and their directly inherited roles
+        WITH inherited_roles AS (
+            SELECT
+                r.rolname AS role_name,
+                string_agg(m.rolname, '','' ORDER BY m.rolname) AS inherited_role
+            FROM pg_roles r
+            LEFT JOIN pg_auth_members am ON r.oid = am.member
+            LEFT JOIN pg_roles m ON am.roleid = m.oid
+            GROUP BY r.rolname
+        ),
+        -- CTE for schema CREATE privileges
+        schema_create AS (
+            SELECT
+                n.nspname::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                ''CREATE''::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_schema_privilege''::TEXT AS source
+            FROM pg_namespace n
+            JOIN pg_roles r ON has_schema_privilege(r.rolname, n.oid, ''CREATE'')
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+            WHERE n.nspname NOT LIKE ''pg_%'' AND n.nspname <> ''information_schema''
+        ),
+        -- CTE for schema USAGE privileges
+        schema_usage AS (
+            SELECT
+                n.nspname::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                ''USAGE''::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_schema_privilege''::TEXT AS source
+            FROM pg_namespace n
+            JOIN pg_roles r ON has_schema_privilege(r.rolname, n.oid, ''USAGE'')
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+            WHERE n.nspname NOT LIKE ''pg_%'' AND n.nspname <> ''information_schema''
+        ),
+        -- CTE for database-level privileges (CREATE, TEMP, CONNECT)
+        db_privs AS (
+            SELECT
+                current_database()::TEXT AS object_scope,
+                r.rolname::TEXT AS grantee,
+                unnest(string_to_array(
+                    TRIM(BOTH '','' FROM
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''CREATE'') THEN ''CREATE,'' ELSE '''' END ||
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''TEMP'') THEN ''TEMP,'' ELSE '''' END ||
+                        CASE WHEN has_database_privilege(r.rolname, current_database(), ''CONNECT'') THEN ''CONNECT'' ELSE '''' END
+                    ), '',''))::TEXT AS privilege,
+                ir.inherited_role,
+                ''actual_database_privilege''::TEXT AS source
+            FROM pg_roles r
+            LEFT JOIN inherited_roles ir ON r.rolname = ir.role_name
+        ),
+        -- CTE to extract raw ACL entries from pg_default_acl for PG 14+
+        raw_acls AS (
+            SELECT
+                pda.defaclnamespace::regnamespace::TEXT AS object_scope,
+                (regexp_matches(acl_entry::TEXT, ''^(.+?)=([a-zA-Z]*)/?(.+)?$''))[1]::TEXT AS grantee,
+                (regexp_matches(acl_entry::TEXT, ''^(.+?)=([a-zA-Z]*)/?(.+)?$''))[2]::TEXT AS privs_raw
+            FROM pg_default_acl pda, unnest(pda.defaclacl) AS acl_entry
+            WHERE current_setting(''server_version_num'')::INT >= 140000
+        ),
+        -- CTE to expand raw ACL characters into full privilege names
+        expanded_acls AS (
+            SELECT
+                ra.object_scope,
+                ra.grantee,
+                CASE
+                    WHEN ra.privs_raw IS NULL THEN NULL
+                    ELSE array_to_string(ARRAY(
+                        SELECT priv_subquery.privilege FROM (
+                            SELECT CASE WHEN ra.privs_raw LIKE ''%a%'' THEN ''INSERT'' END AS privilege
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%r%'' THEN ''SELECT'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%w%'' THEN ''UPDATE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%d%'' THEN ''DELETE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%D%'' THEN ''TRUNCATE'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%x%'' THEN ''REFERENCES'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%t%'' THEN ''TRIGGER'' END
+                            UNION ALL SELECT CASE WHEN ra.privs_raw LIKE ''%X%'' THEN ''EXECUTE'' END
+                        ) AS priv_subquery WHERE priv_subquery.privilege IS NOT NULL ORDER BY priv_subquery.privilege
+                    ), '','')
+                END AS privilege,
+                ir.inherited_role,
+                ''default_acl''::TEXT AS source
+            FROM raw_acls ra
+            LEFT JOIN inherited_roles ir ON ra.grantee = ir.role_name
+        )
+
+        -- Combine all privilege types and filter by p_role if provided
+        SELECT sc.object_scope, sc.grantee, sc.privilege, sc.inherited_role, sc.source FROM schema_create sc WHERE p_role = '''' OR sc.grantee = p_role
+        UNION ALL
+        SELECT su.object_scope, su.grantee, su.privilege, su.inherited_role, su.source FROM schema_usage su WHERE p_role = '''' OR su.grantee = p_role
+        UNION ALL
+        SELECT db.object_scope, db.grantee, db.privilege, db.inherited_role, db.source FROM db_privs db WHERE p_role = '''' OR db.grantee = p_role
+        UNION ALL
+        SELECT ea.object_scope, ea.grantee, ea.privilege, ea.inherited_role, ea.source FROM expanded_acls ea WHERE p_role = '''' OR ea.grantee = p_role
+        ORDER BY grantee, object_scope, privilege;
+    END;
+    $func$;
+    ';
+
+    -- Execute the dynamically constructed SQL to create the function
+    EXECUTE v_sql;
+END $$;
+--- END FAILED SCRIPT ---
+🚀 Running on refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com...
+=== refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:42: ERROR:  unrecognized configuration parameter "transaction_timeout"
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.createschemawithpermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.GetPrivileges.sql"
+SET
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql"
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:21: NOTICE:  Schema "info" already exists.
+DO
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:56: NOTICE:  Table "info.password_change_audit" already exists.
+DO
+CREATE FUNCTION
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.SetPassword.sql:110: NOTICE:  To execute password change: SELECT info.SetPassword('username', 'newPassword');
+DO
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/3 info/info.sp_whoisactive.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/4 admin/admin.SetDBOffline.sql"
+SET
+CREATE FUNCTION
+🔁 Running on refundplus_ddm...
+📄 [refundplus_ddm] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" -p "5432" -d "refundplus_ddm" -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/5 other/dba.GetPrivileges.sql"
+SET
+DO
+🚀 Running on refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com...
+=== refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com ===
+✅ DBA found. Executing against DBA...
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql"
+SET
+SET
+Using default database name: "DBA"
+Final database name: "DBA"
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/DBA_database_creation.sql:33: ERROR:  database "DBA" already exists
+GRANT
+GRANT
+GRANT
+GRANT
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql"
+SET
+Using default database name: model
+Final database name: model
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:28: ERROR:  database "model" already exists
+You are now connected to database "model" as user "jrussell".
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+CREATE SCHEMA
+ALTER SCHEMA
+CREATE FUNCTION
+ALTER FUNCTION
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+ALTER DEFAULT PRIVILEGES
+SET
+psql:C:/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/1 initial/model_database_creation.sql:226: ERROR:  permission denied for table pg_database
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.DropSchemaWithCleanup.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountRevoke.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetAccountSetup.sql"
+SET
+CREATE FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetCreateUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRevokeUser.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION
+📄 [DBA] /c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql
+🔗 Running: psql -U "jrussell" -h "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" -p "5432" -d DBA -f "/c/GitHub/as-jrussell/Opscenter/Administry_Of_Databases/Postgres/Postgres_Deploy/chmod/Deploy/2 deploy/deploy.SetRolePermissions.sql"
+SET
+CREATE FUNCTION
+ALTER FUNCTION

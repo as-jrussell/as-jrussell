@@ -1,14 +1,13 @@
 -- ==============================================================
 -- 🚀 INITIAL INFRASTRUCTURE SETUP — Roles + Database
 -- ==============================================================
-
 -- 🔁 DRY-RUN / EXECUTION FLAG (optional)
 -- \set execute_flag TRUE
 
--- ✅ STEP 1: CREATE ROLES
+-- ✅ CREATE ROLES
 \i Role_creations.sql
 
--- ✅ STEP 2: CREATE DATABASE
+-- ✅ CREATE DATABASE
 \i DBA_database_creation.sql
 
 -- ==============================================================
@@ -31,50 +30,50 @@ set role dba_team;
 
 
 
--- ✅ STEP 3: SCHEMA CREATION
+-- ✅ SCHEMA CREATION
 \i Schema_creation.sql
 
--- ✅ STEP 4: TABLE CREATION
+-- ✅ TABLE CREATION
 \i Tablecreations.sql
 
--- ✅ STEP 5: ROLE PERMISSIONS
+-- ✅ ROLE PERMISSIONS
 \i deploy.SetRolePermissions.sql
 
--- ✅ STEP 6: REVOKE PERMISSIONS
+-- ✅ REVOKE PERMISSIONS
 \i deploy.SetRevokeRolePermissions.sql
 
--- ✅ STEP 7: USER CREATION & ROLE ASSIGNMENT
+-- ✅ USER CREATION & ROLE ASSIGNMENT
 \i deploy.SetCreateUser.sql
 
--- ✅ STEP 8: REVOKE USERS
+-- ✅ REVOKE USERS
 \i deploy.SetRevokeUser.sql
 
--- ✅ STEP 9: FULL ACCOUNT SETUP
+-- ✅ FULL ACCOUNT SETUP
 \i deploy.SetAccountSetup.sql
 
--- ✅ STEP 10: FULL ACCOUNT TEARDOWN
+-- ✅ FULL ACCOUNT TEARDOWN
 \i deploy.SetAccountRevoke.sql
 
--- ✅ STEP 11: PASSWORD SET FUNCTION
+-- ✅ PASSWORD SET FUNCTION
 \i info.SetPassword.sql
 
--- ✅ STEP 12: WHOISACTIVE FUNCTION (diagnostic)
+-- ✅ Check Permissions
+\i info.GetPrivileges.sql
+
+-- ✅ WHOISACTIVE FUNCTION (diagnostic)
 \i info.sp_whoisactive.sql
 
--- ✅ STEP 13: Create Schema Function
+-- ✅ Create Schema Function
 \i deploy.createschemawithpermissions.sql
 
--- ✅ STEP 14: Drop Schema Function
+-- ✅ Drop Schema Function
 \i deploy.DropSchemaWithCleanup.sql
 
--- ✅ STEP 15: Give team access to the instance
+-- ✅ Give team access to the instance
 \i Adding_DBA_team.sql
 
--- ✅ STEP 16: SetDatabaseConnectionLimit
-\i SetDatabaseConnectionLimit.sql
+-- ✅ SetDatabaseConnectionLimit
+\i admin.SetDBOffline.sql
 
-
--- ==============================================================
--- DONE 🎉 Output logs will show DRY_RUN or EXECUTED based on flag
--- ==============================================================
-
+-- ✅ CREATE MODEL DB
+\i model_database_creation.sql

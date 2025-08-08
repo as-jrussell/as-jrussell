@@ -1,3 +1,5 @@
+set role dba_team; 
+
 -- 🔧 Create users and assign them to the dba_team role
 SELECT deploy.SetAccountSetup(
     p_usernames := ARRAY[

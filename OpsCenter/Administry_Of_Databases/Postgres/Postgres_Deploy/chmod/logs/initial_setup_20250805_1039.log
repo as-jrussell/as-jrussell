@@ -1,0 +1,8 @@
+🔧 Initial Setup Log - 20250805_1039
+🚀 Running on psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com...
+=== psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+⚠️ DBA not found on psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com. Skipping DBA deployment.
+🚀 Running on dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com...
+=== dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+⚠️ DBA not found on dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com. Skipping DBA deployment.
+✅ All deployments complete. Log: logs/initial_setup_20250805_1039.log

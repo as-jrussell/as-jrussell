@@ -72,9 +72,11 @@ JOIN pg_namespace n ON n.oid = p.pronamespace
 WHERE n.nspname = 'deploy';  -- or whatever schema you want
 
 
+SELECT * FROM pg_available_extensions ORDER BY name;
 
 
 */
+
 
 
 SELECT
@@ -103,6 +105,7 @@ LEFT JOIN
 GROUP BY
     r.rolname,r.rolcanlogin
 ORDER BY rolcanlogin ASC,  inherited_roles asc
+
 
 
 

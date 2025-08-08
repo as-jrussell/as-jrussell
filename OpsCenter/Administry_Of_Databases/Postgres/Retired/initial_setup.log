@@ -1,0 +1,60 @@
+🔧 Initial Setup Log - Mon Jul 28 13:10:55 EDT 2025
+=== localhost ===
+psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+❌ ERROR on localhost
+=== arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" (172.30.159.148), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com" (172.30.159.148), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on arm-api-db-dev.cjw04s24873k.us-east-2.rds.amazonaws.com
+=== psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" (172.30.157.86), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com" (172.30.157.86), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on psql-arm-api-db-dev.cj000i082mqg.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" (172.31.28.56), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com" (172.31.28.56), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on lendinginsights-main-dev.cluster-colb4u94kqbm.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" (172.31.22.22), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com" (172.31.22.22), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on lendinginsights-main-prd.cluster-c1u6bf3o3xwc.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" (172.31.224.22), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com" (172.31.224.22), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on lendinginsights-main-stg.cluster-cxte9ugnlkkd.us-east-2.rds.amazonaws.com
+=== psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.26.43), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.26.43), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on psqltstawrd01.clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.24.19), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.24.19), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on dba-exp-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.24.58), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com" (172.31.24.58), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on lendinginsights-main-tst.cluster-clm0vrvchewi.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.172), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.172), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on refundplus-dealer-portal-dev.c90kw0qemomq.us-east-2.rds.amazonaws.com
+=== refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.61), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com" (172.30.179.61), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on refundplus-ddm-dev.cluster-c90kw0qemomq.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" (172.30.178.18), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com" (172.30.178.18), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on refundplus-dealer-portal-stg.c7m8cs6i48u2.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com" (172.30.177.176), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com" (172.30.177.176), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on refundplus-dealer-portal-tst.c7iamq26sc0b.us-east-2.rds.amazonaws.com
+=== psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com" (172.30.181.112), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com" (172.30.181.112), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on psql-customerdb-tst.cd46ukoog0za.us-east-2.rds.amazonaws.com
+=== refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com ===
+psql: error: connection to server at "refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com" (172.30.176.147), port 5432 failed: FATAL:  password authentication failed for user "jrussell"
+connection to server at "refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com" (172.30.176.147), port 5432 failed: FATAL:  no pg_hba.conf entry for host "10.5.6.78", user "jrussell", database "postgres", no encryption
+❌ ERROR on refundplus-dealer-portal-prd.cvy4omcy2jwr.us-east-2.rds.amazonaws.com
